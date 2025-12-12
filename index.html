@@ -1,0 +1,1179 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>변지인 | 포트폴리오</title>
+    
+    <!-- 1. Fonts -->
+    <!-- [MODERN FONT UPDATE] Pretendard (Korean Standard Modern) -->
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
+    
+    <!-- Google Fonts for English Point Font (Space Grotesk) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <style>
+        :root {
+            /* [Theme] Absolute Black & White */
+            --bg-color: #ffffff;
+            --text-color: #111111; 
+            --sidebar-bg: #0a0a0a;
+            --sidebar-text: #ffffff;
+            --line-color: #111111;
+            
+            --sidebar-width: 280px;
+            
+            --font-main: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
+            --font-eng: 'Space Grotesk', sans-serif; 
+            --font-title: 'Pretendard Variable', Pretendard, sans-serif;
+        }
+
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+
+        html { scroll-behavior: auto; }
+
+        body {
+            font-family: var(--font-main);
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            margin-left: var(--sidebar-width);
+            overflow-x: hidden;
+            letter-spacing: -0.02em;
+            
+            /* 보안 설정 */
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+
+        /* --- [Sidebar] --- */
+        .sidebar {
+            position: fixed;
+            top: 0; left: 0;
+            width: var(--sidebar-width);
+            height: 100vh;
+            background-color: var(--sidebar-bg);
+            color: var(--sidebar-text);
+            padding: 3rem 2rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            z-index: 1000;
+            border-right: 1px solid #222;
+        }
+
+        .logo-area {
+            border-bottom: 1px solid #222;
+            padding-bottom: 2rem;
+        }
+
+        .logo-area h1 {
+            font-family: var(--font-title); 
+            font-size: 2.5rem;
+            font-weight: 800;
+            letter-spacing: -0.05em;
+            line-height: 1.2;
+            word-break: keep-all;
+        }
+
+        .nav-menu {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0; 
+        }
+
+        .nav-menu li a {
+            display: block;
+            padding: 1.1rem 0;
+            color: #888;
+            text-decoration: none;
+            font-family: var(--font-eng);
+            font-size: 1.05rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: 0.3s;
+            border-bottom: 1px solid #1a1a1a;
+            font-weight: 500;
+        }
+
+        .nav-menu li a:hover {
+            color: #fff;
+            padding-left: 10px; 
+        }
+
+        .sidebar-footer {
+            font-family: var(--font-eng);
+            font-size: 0.7rem;
+            color: #555;
+            letter-spacing: 1px;
+            line-height: 1.5;
+        }
+
+        /* --- [Main Content] --- */
+        main {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 5rem;
+        }
+
+        .sec-header {
+            display: flex;
+            align-items: baseline;
+            gap: 1.2rem;
+            margin-bottom: 3.5rem;
+            padding-top: 7rem;
+            border-bottom: 3px solid var(--line-color);
+            padding-bottom: 1rem;
+        }
+        
+        .sec-num {
+            font-family: var(--font-eng);
+            font-size: 3.5rem;
+            font-weight: 700;
+            color: transparent;
+            -webkit-text-stroke: 1px var(--text-color);
+            line-height: 1;
+        }
+
+        .sec-title {
+            font-family: var(--font-title);
+            font-size: 2.8rem;
+            font-weight: 800;
+            color: var(--text-color);
+            letter-spacing: -0.03em;
+            line-height: 1;
+        }
+
+        /* --- [Hero Section] --- */
+        .hero {
+            height: 90vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: flex-start;
+        }
+
+        .hero-text {
+            font-family: var(--font-eng);
+            font-size: 6.5rem;
+            font-weight: 700;
+            line-height: 0.95;
+            margin-bottom: 2.5rem;
+            word-break: keep-all;
+            letter-spacing: -2px;
+        }
+
+        .hero-sub {
+            font-size: 2rem;
+            color: #111;
+            margin-bottom: 3.5rem;
+            max-width: 800px;
+            font-weight: 700;
+            line-height: 1.4;
+            letter-spacing: -0.02em;
+        }
+
+        .btn-group {
+            display: flex;
+            gap: 1.2rem;
+        }
+
+        .btn-black {
+            padding: 1.1rem 2.8rem;
+            background: #111;
+            color: #fff;
+            text-decoration: none;
+            font-family: var(--font-eng);
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: 0.3s;
+            border: 1px solid #111;
+            letter-spacing: 1px;
+        }
+
+        .btn-black:hover {
+            background: #fff;
+            color: #111;
+        }
+
+        .btn-outline {
+            padding: 1.1rem 2.8rem;
+            background: #fff;
+            color: #111;
+            text-decoration: none;
+            font-family: var(--font-eng);
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: 1px solid #111;
+            transition: 0.3s;
+            letter-spacing: 1px;
+        }
+
+        .btn-outline:hover {
+            background: #111;
+            color: #fff;
+        }
+
+        /* --- [About Me] Layout Updated --- */
+        .about-container {
+            display: flex;
+            gap: 4rem;
+            align-items: flex-start;
+        }
+
+        /* 프로필 사진 플레이스홀더 */
+        .profile-photo {
+            width: 320px;
+            height: 400px;
+            background-color: #f0f0f0; /* 사진 들어갈 자리 색상 */
+            border: 1px solid #ddd;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: var(--font-eng);
+            color: #aaa;
+            font-weight: 600;
+            overflow: hidden; /* 이미지 넘침 방지 */
+        }
+
+        .profile-photo img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .about-details {
+            flex-grow: 1;
+        }
+
+        .about-desc {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            font-weight: 400;
+            margin-bottom: 3rem;
+            color: #222;
+            word-break: keep-all;
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+
+        .info-list {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            border-top: 1px solid #111;
+        }
+
+        .info-item {
+            display: flex;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 1.5rem 0;
+            align-items: center;
+        }
+        
+        .info-item:nth-child(odd) { padding-right: 2rem; border-right: 1px solid #e5e5e5; }
+        .info-item:nth-child(even) { padding-left: 2rem; }
+
+        .info-label {
+            font-family: var(--font-eng);
+            width: 100px;
+            font-weight: 600;
+            color: #888;
+            text-transform: uppercase;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
+        }
+
+        .info-value {
+            font-weight: 600;
+            color: #111;
+            font-size: 1.05rem;
+            -webkit-user-select: text;
+            -moz-user-select: text;
+            -ms-user-select: text;
+            user-select: text;
+        }
+
+        /* --- [Experience] --- */
+        .exp-container { border-left: 1px solid #111; }
+        .exp-row {
+            display: flex;
+            border-bottom: 1px solid #e5e5e5;
+            padding: 3rem 0;
+            padding-left: 2.5rem;
+            transition: 0.3s;
+        }
+        .exp-row:hover { background-color: #f8f8f8; }
+        .exp-date {
+            width: 240px;
+            font-family: var(--font-eng);
+            font-weight: 600;
+            font-size: 1.15rem;
+            color: #111;
+            flex-shrink: 0;
+            letter-spacing: -0.5px;
+        }
+        .exp-content h3 {
+            font-size: 1.45rem;
+            font-weight: 700;
+            margin-bottom: 0.6rem;
+            font-family: var(--font-title);
+            color: #111;
+        }
+        .exp-content p { color: #555; font-size: 1.05rem; }
+
+        /* --- [Skills] --- */
+        .skills-wrapper { display: flex; flex-direction: column; gap: 2.5rem; }
+        .skill-group h3 {
+            font-family: var(--font-eng); font-size: 1.1rem; margin-bottom: 1.2rem;
+            color: #111; text-transform: uppercase; border-left: 3px solid #111;
+            padding-left: 12px; font-weight: 700;
+        }
+        .skill-tags { display: flex; flex-wrap: wrap; gap: 12px; }
+        .tech-tag {
+            font-family: var(--font-eng); border: 1px solid #ddd; padding: 0.6rem 1.4rem;
+            color: #333; font-size: 0.95rem; font-weight: 500; background: #fff; transition: 0.2s;
+        }
+        .tech-tag:hover {
+            border-color: #111; background: #111; color: #fff; transform: translateY(-2px);
+        }
+
+        /* --- [Projects] List Style with Images (Updated Size) --- */
+        .project-list { display: flex; flex-direction: column; }
+
+        .project-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 3rem 0; /* 세로 여백 늘림 */
+            border-bottom: 1px solid #111;
+            cursor: pointer;
+            position: relative;
+            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            background: #fff;
+        }
+
+        .project-item:first-child { border-top: 1px solid #111; }
+
+        .project-item:hover {
+            background: #111;
+            padding-left: 20px;
+            padding-right: 20px;
+        }
+
+        .project-item:hover .pj-title,
+        .project-item:hover .pj-desc,
+        .project-item:hover .pj-meta {
+            color: #fff;
+        }
+        
+        .pj-left {
+            display: flex;
+            align-items: center;
+            gap: 3rem; /* 간격 늘림 */
+            flex-grow: 1; 
+        }
+
+        /* [수정] 프로젝트 이미지 썸네일 크기 확대 */
+        .pj-img {
+            width: 280px; /* 160px -> 280px */
+            height: 160px; /* 90px -> 160px */
+            background-color: #f0f0f0; 
+            border: 1px solid #ddd;
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #aaa;
+            font-size: 0.9rem;
+            font-family: var(--font-eng);
+            overflow: hidden; /* 이미지 넘침 방지 */
+        }
+        
+        .pj-img img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+        
+        /* 호버시 이미지 테두리 변경 */
+        .project-item:hover .pj-img {
+            border-color: #555;
+            opacity: 0.9;
+        }
+
+        .pj-info {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .pj-title {
+            font-family: var(--font-title);
+            font-size: 1.8rem; /* 폰트 사이즈 키움 */
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+            color: #111;
+            transition: 0.3s;
+            letter-spacing: -0.03em;
+        }
+
+        .pj-desc {
+            font-size: 1.1rem;
+            color: #666;
+            font-family: var(--font-eng); 
+            transition: 0.3s;
+            font-weight: 400;
+        }
+
+        .pj-meta {
+            font-family: var(--font-title); 
+            font-size: 1rem;
+            color: #111;
+            text-align: right;
+            transition: 0.3s;
+            font-weight: 500;
+            line-height: 1.6;
+            min-width: 160px; 
+        }
+
+        .pj-arrow {
+            opacity: 0;
+            color: #fff;
+            font-size: 1.8rem;
+            transform: translateX(-20px);
+            transition: 0.3s;
+            margin-left: 2rem;
+        }
+
+        .project-item:hover .pj-arrow {
+            opacity: 1;
+            transform: translateX(0);
+        }
+
+        /* --- [Contact Footer] --- */
+        .footer-sec {
+            margin-top: 10rem;
+            background: #0a0a0a;
+            color: #fff;
+            padding: 6rem 2rem;
+            text-align: center;
+            margin-left: -5rem; 
+            width: calc(100% + 10rem);
+        }
+        .contact-link {
+            font-family: var(--font-eng); font-size: 2.5rem; color: #fff; text-decoration: none;
+            border-bottom: 2px solid #fff; padding-bottom: 8px; transition: 0.3s; font-weight: 700;
+        }
+        .contact-link:hover { color: #888; border-color: #888; }
+        .copyright { margin-top: 3rem; color: #555; font-size: 0.85rem; font-family: var(--font-eng); }
+
+        /* --- [Modal] --- */
+        .modal {
+            display: none; position: fixed; z-index: 2000; left: 0; top: 0;
+            width: 100%; height: 100%; background-color: rgba(255,255,255,0.95);
+            opacity: 0; transition: opacity 0.3s;
+        }
+        .modal.show { display: block; opacity: 1; }
+        .modal-content {
+            background-color: #fff; margin: 0 auto; width: 100%; height: 100%; max-width: 1100px;
+            border-left: 1px solid #eee; border-right: 1px solid #eee; display: flex; flex-direction: column;
+            transform: translateY(50px); transition: transform 0.4s cubic-bezier(0.165, 0.84, 0.44, 1);
+            box-shadow: 0 0 60px rgba(0,0,0,0.05);
+        }
+        .modal.show .modal-content { transform: translateY(0); }
+        .modal-header {
+            padding: 2.5rem 3.5rem; border-bottom: 4px solid #111;
+            display: flex; justify-content: space-between; align-items: flex-start; background: #fff;
+        }
+        .close-btn { font-size: 3.5rem; line-height: 0.5; cursor: pointer; transition: 0.3s; color: #111; }
+        .close-btn:hover { color: red; transform: rotate(90deg); }
+        .modal-body { padding: 3.5rem; overflow-y: auto; }
+        
+        .m-title { font-size: 3rem; font-family: var(--font-title); font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.03em; }
+        .m-meta { font-family: var(--font-title); color: #666; font-size: 1.2rem; margin-bottom: 1.5rem; display: block; font-weight: 500; }
+        .m-section { margin-bottom: 3.5rem; }
+        .m-section h3 {
+            font-size: 1.5rem; font-family: var(--font-title); font-weight: 700;
+            border-bottom: 2px solid #111; padding-bottom: 0.8rem; margin-bottom: 1.2rem; letter-spacing: -0.02em;
+        }
+        .m-tags .tag { 
+            background: #111; color: #fff; padding: 0.5rem 1.2rem; margin-right: 6px; 
+            font-size: 0.9rem; font-family: var(--font-eng); border-radius: 2px;
+        }
+        .trouble-box { border: 1px solid #ddd; padding: 2rem; background: #fcfcfc; border-left: 4px solid #111; }
+
+        /* --- [Responsive] --- */
+        @media (max-width: 900px) {
+            body { margin-left: 0; padding-top: 60px; }
+            .sidebar {
+                width: 100%; height: 60px; padding: 0 1.5rem;
+                flex-direction: row; align-items: center; border-bottom: 1px solid #222; border-right: none;
+            }
+            .nav-menu, .sidebar-footer { display: none; }
+            .logo-area { border-bottom: none; padding-bottom: 0; }
+            .logo-area h1 { font-size: 1.5rem; }
+            main { padding: 0 1.5rem; width: 100%; max-width: 100%; }
+            .sec-header { padding-top: 4rem; gap: 0.8rem; border-bottom-width: 2px; }
+            .sec-num { font-size: 2.5rem; }
+            .sec-title { font-size: 2rem; }
+            .hero-text { font-size: 3.8rem; letter-spacing: -1px; }
+            .hero-sub { font-size: 1.5rem; }
+            
+            /* About Me 반응형 */
+            .about-container { flex-direction: column; gap: 2rem; }
+            .profile-photo { width: 100%; max-width: 300px; height: 300px; margin: 0 auto; }
+            .info-list { grid-template-columns: 1fr; }
+            .info-item:nth-child(odd) { border-right: none; padding-right: 0; }
+            .info-item:nth-child(even) { padding-left: 0; }
+            
+            /* Projects 반응형 */
+            .project-item { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 2rem 1.5rem; }
+            .pj-left { width: 100%; gap: 1rem; flex-direction: column; align-items: flex-start; }
+            .pj-img { width: 100%; height: 200px; } /* 모바일에서는 이미지를 크게 */
+            .pj-meta { text-align: left; margin-top: 0.5rem; color: #888; }
+            .pj-arrow { display: none; }
+            .project-item:hover { transform: none; padding-left: 1.5rem; padding-right: 1.5rem; }
+            
+            .modal-content { height: 100%; border: none; }
+            .modal-header { padding: 1.5rem; }
+            .modal-body { padding: 1.5rem; }
+            .m-title { font-size: 2rem; }
+            .footer-sec { margin-left: -1.5rem; width: calc(100% + 3rem); padding: 4rem 1.5rem; }
+            .contact-link { font-size: 1.5rem; }
+        }
+    </style>
+</head>
+<body oncontextmenu="return false">
+
+    <!-- Sidebar -->
+    <nav class="sidebar">
+        <div class="logo-area">
+            <h1>변지인</h1>
+        </div>
+        <ul class="nav-menu">
+            <li><a href="#">01. Home</a></li>
+            <li><a href="#about">02. Profile</a></li>
+            <li><a href="#experience">03. Career</a></li>
+            <li><a href="#skills">04. Skills</a></li>
+            <li><a href="#projects">05. Works</a></li>
+            <li><a href="#contact">06. Contact</a></li>
+        </ul>
+        <div class="sidebar-footer">
+            MADE BY YH<br>
+            © 2025
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main>
+        
+        <!-- Hero Section -->
+        <section class="hero">
+            <h2 class="hero-text">
+                IMAGINE,<br>
+                DESIGN,<br>
+                BUILD.
+            </h2>
+            <p class="hero-sub">
+                나는 개발자 변지인!
+            </p>
+            <div class="btn-group">
+                <a href="https://github.com/ahnyouhan" target="_blank" class="btn-black">GITHUB</a>
+                <a href="https://linktr.ee/ahnyouhan" target="_blank" class="btn-outline">DOCS</a>
+            </div>
+        </section>
+
+        <!-- About Section (Layout Changed) -->
+        <section id="about">
+            <div class="sec-header">
+                <span class="sec-num">02</span>
+                <h2 class="sec-title">Profile</h2>
+            </div>
+            
+            <div class="about-container">
+                <!-- 프로필 사진 자리 -->
+                <div class="profile-photo">
+                    PROFILE IMG
+                </div>
+
+                <div class="about-details">
+                    <p class="about-desc">
+                        단순히 코드를 작성하는 것을 넘어, 시스템의 구조를 이해하고 최적화하는 것을 즐깁니다.
+                        FPGA, RISC-V 아키텍처 설계부터 사용자 인터페이스 구현까지,
+                        Full-Stack Embedded Engineer를 목표로 나아가고 있습니다.
+                    </p>
+
+                    <div class="info-list">
+                        <div class="info-item">
+                            <span class="info-label">Name</span>
+                            <span class="info-value">변지인</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Birth</span>
+                            <span class="info-value">2001.03.16</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Address</span>
+                            <span class="info-value">서울시 강서구</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Email</span>
+                            <span class="info-value">youhanahn@gmail.com</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Education</span>
+                            <span class="info-value">국립목포대학교 정보통신공학과</span>
+                        </div>
+                        <div class="info-item">
+                            <span class="info-label">Phone</span>
+                            <span class="info-value">010-1234-1234</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Experience Section -->
+        <section id="experience">
+            <div class="sec-header">
+                <span class="sec-num">03</span>
+                <h2 class="sec-title">Career Path</h2>
+            </div>
+            <div class="exp-container">
+                <div class="exp-row">
+                    <div class="exp-date">2019 - 2026 (Exp)</div>
+                    <div class="exp-content">
+                        <h3>국립목포대학교 정보통신공학과</h3>
+                        <p>임베디드 시스템 및 디지털 회로 설계 심화 전공 (4.0/4.5)</p>
+                    </div>
+                </div>
+                <div class="exp-row">
+                    <div class="exp-date">2025.01 - 02</div>
+                    <div class="exp-content">
+                        <h3>FPGA 기반 디지털 회로 설계 전문가 과정</h3>
+                        <p>Xilinx Vivado & Verilog HDL 실무 프로젝트 (160시간 수료)</p>
+                    </div>
+                </div>
+                <div class="exp-row">
+                    <div class="exp-date">2024.11</div>
+                    <div class="exp-content">
+                        <h3>교내 임베디드 시스템 경진대회 [은상]</h3>
+                        <p>영상 처리를 위한 하드웨어 가속기 설계 및 구현</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Skills Section -->
+        <section id="skills">
+            <div class="sec-header">
+                <span class="sec-num">04</span>
+                <h2 class="sec-title">Tech Stack</h2>
+            </div>
+            <div class="skills-wrapper">
+                <div class="skill-group">
+                    <h3>Languages</h3>
+                    <div class="skill-tags">
+                        <span class="tech-tag">C / C++</span>
+                        <span class="tech-tag">Verilog HDL</span>
+                        <span class="tech-tag">SystemVerilog</span>
+                        <span class="tech-tag">Python</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3>Tools & IDE</h3>
+                    <div class="skill-tags">
+                        <span class="tech-tag">Xilinx Vivado</span>
+                        <span class="tech-tag">Vitis</span>
+                        <span class="tech-tag">STM32 CubeIDE</span>
+                        <span class="tech-tag">Visual Studio Code</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Section (Updated) -->
+        <section id="projects">
+            <div class="sec-header">
+                <span class="sec-num">05</span>
+                <h2 class="sec-title">Selected Works</h2>
+            </div>
+
+            <div class="project-list">
+                
+                <!-- 1. Video Filter -->
+                <div class="project-item" onclick="openModal('video-filter')">
+                    <div class="pj-left">
+                        <!-- 이미지 썸네일 자리 -->
+                        <div class="pj-img">PROJECT IMG</div>
+                        <div class="pj-info">
+                            <div class="pj-title">영상 처리 및 필터 구현</div>
+                            <div class="pj-desc">FPGA Real-time Image Processing & VGA Controller</div>
+                        </div>
+                    </div>
+                    <!-- 한글화 적용 -->
+                    <div class="pj-meta">
+                        2025.11 - 12<br>팀 프로젝트 (4명)
+                    </div>
+                    <div class="pj-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+
+                <!-- 2. AXI SPI -->
+                <div class="project-item" onclick="openModal('axi-spi')">
+                    <div class="pj-left">
+                        <div class="pj-img">PROJECT IMG</div>
+                        <div class="pj-info">
+                            <div class="pj-title">SPI/I2C & AXI 인터페이스</div>
+                            <div class="pj-desc">Microblaze SoC IP Design & Verification</div>
+                        </div>
+                    </div>
+                    <div class="pj-meta">
+                        2025.11<br>개인 프로젝트
+                    </div>
+                    <div class="pj-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+
+                <!-- 3. RISC-V -->
+                <div class="project-item" onclick="openModal('risc-v')">
+                    <div class="pj-left">
+                        <div class="pj-img">PROJECT IMG</div>
+                        <div class="pj-info">
+                            <div class="pj-title">RISC-V Core 구현</div>
+                            <div class="pj-desc">32-bit Processor Design with AMBA Bus</div>
+                        </div>
+                    </div>
+                    <div class="pj-meta">
+                        2025.09 - 10<br>팀 프로젝트 (3명)
+                    </div>
+                    <div class="pj-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+
+                <!-- 4. UART -->
+                <div class="project-item" onclick="openModal('uart')">
+                    <div class="pj-left">
+                        <div class="pj-img">PROJECT IMG</div>
+                        <div class="pj-info">
+                            <div class="pj-title">FPGA UART 통신</div>
+                            <div class="pj-desc">Serial Communication & Stopwatch Application</div>
+                        </div>
+                    </div>
+                    <div class="pj-meta">
+                        2025.08<br>개인 프로젝트
+                    </div>
+                    <div class="pj-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+
+                <!-- 5. Fitness -->
+                <div class="project-item" onclick="openModal('fitness')">
+                    <div class="pj-left">
+                        <div class="pj-img">PROJECT IMG</div>
+                        <div class="pj-info">
+                            <div class="pj-title">피트니스 검색기</div>
+                            <div class="pj-desc">Web Crawling & Price Comparison Service</div>
+                        </div>
+                    </div>
+                    <div class="pj-meta">
+                        2025.07<br>팀 프로젝트 (4명)
+                    </div>
+                    <div class="pj-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+
+                <!-- 6. Receipt -->
+                <div class="project-item" onclick="openModal('receipt')">
+                    <div class="pj-left">
+                        <div class="pj-img">PROJECT IMG</div>
+                        <div class="pj-info">
+                            <div class="pj-title">스마트 영수증</div>
+                            <div class="pj-desc">OCR Based Receipt Recognition System</div>
+                        </div>
+                    </div>
+                    <div class="pj-meta">
+                        2025.05 - 06<br>개인 프로젝트
+                    </div>
+                    <div class="pj-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+                 <!-- 7. Parking -->
+                 <div class="project-item" onclick="openModal('parking')">
+                    <div class="pj-left">
+                        <div class="pj-img">PROJECT IMG</div>
+                        <div class="pj-info">
+                            <div class="pj-title">스마트 주차장</div>
+                            <div class="pj-desc">Computer Vision Based Parking Control</div>
+                        </div>
+                    </div>
+                    <div class="pj-meta">
+                        2024.11 - 12<br>팀 프로젝트 (3명)
+                    </div>
+                    <div class="pj-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+                 <!-- 8. Omok -->
+                 <div class="project-item" onclick="openModal('omok')">
+                    <div class="pj-left">
+                        <div class="pj-img">PROJECT IMG</div>
+                        <div class="pj-info">
+                            <div class="pj-title">멀티 플레이 오목</div>
+                            <div class="pj-desc">TCP/IP Socket Network Game</div>
+                        </div>
+                    </div>
+                    <div class="pj-meta">
+                        2019.08<br>개인 프로젝트
+                    </div>
+                    <div class="pj-arrow"><i class="fas fa-arrow-right"></i></div>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer id="contact" class="footer-sec">
+            <h2 style="font-family: var(--font-eng); margin-bottom: 2rem;">LET'S WORK TOGETHER</h2>
+            <a href="mailto:youhanahn@gmail.com" class="contact-link">youhanahn@gmail.com</a>
+            <div class="copyright">
+                <p>010-1234-1234</p>
+                <br>
+                Copyright © 2025 Jiin Byun. All rights reserved.<br>
+            </div>
+        </footer>
+
+    </main>
+
+    <!-- Modal -->
+    <div id="project-modal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <div>
+                    <h2 id="modal-title" class="m-title">Project Title</h2>
+                    <span id="modal-meta" class="m-meta">Period / Team</span>
+                    <div id="modal-tags" class="m-tags"></div>
+                </div>
+                <span class="close-btn" onclick="closeModal()">&times;</span>
+            </div>
+            
+            <div class="modal-body">
+                <div style="margin-bottom: 2rem; text-align: right;">
+                    <a href="#" id="modal-github-link" target="_blank" class="btn-black" style="font-size: 0.9rem; padding: 0.5rem 1.5rem;">
+                        <i class="fab fa-github"></i> VIEW CODE
+                    </a>
+                </div>
+                <div class="m-section">
+                    <h3>개요</h3>
+                    <p id="modal-summary">Summary here.</p>
+                </div>
+                <div class="m-section">
+                    <h3>역할</h3>
+                    <ul id="modal-role" style="padding-left: 1.2rem; line-height: 1.8;"></ul>
+                </div>
+                <div class="m-section">
+                    <h3>상세 내용</h3>
+                    <ul id="modal-details" style="padding-left: 1.2rem; line-height: 1.8;"></ul>
+                </div>
+                <div class="m-section" id="modal-troubleshooting-section">
+                    <h3>트러블슈팅</h3>
+                    <div class="trouble-box">
+                        <strong style="display:block; margin-bottom:0.5rem;">Issue & Solution</strong>
+                        <p id="modal-troubleshooting"></p>
+                    </div>
+                </div>
+                <div class="m-section" id="modal-reflections-section">
+                    <h3>고찰</h3>
+                    <p id="modal-reflections" style="white-space: pre-line; line-height: 1.8; color: #444;"></p>
+                </div>
+                <div class="m-section" id="modal-doc-section" style="display:none;">
+                    <h3>프로젝트 상세 문서</h3>
+                    <div style="background:#eee; height:500px; display:flex; align-items:center; justify-content:center;">
+                        <iframe id="modal-doc-frame" src="" style="width:100%; height:100%; border:none;"></iframe>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Script -->
+    <script>
+        const projectData = {
+            "video-filter": {
+                title: "영상 처리 및 필터 구현",
+                period: "2025.11 ~ 2025.12 (팀 프로젝트 / 4명)", // [수정] 모달 내부 데이터도 한글화
+                summary: "실시간 영상 필터(Convex Lens 등) 및 VGA 컨트롤러 구현 프로젝트입니다.",
+                reflections: "이번 프로젝트를 통해 FPGA의 타이밍 제어에 대해 깊이 이해할 수 있었습니다. 특히 라인 버퍼를 설계하며 메모리 대역폭 문제와 실시간 처리의 트레이드오프를 경험했고, 이를 통해 최적화된 아키텍처를 도출해낼 수 있었습니다.",
+                troubleshooting: "초기 라인 버퍼 설계 시 타이밍 위반 문제가 발생했습니다. 파이프라인 단계를 추가하여 경로 지연을 줄이고, 클럭 주파수를 최적화하여 해결했습니다.",
+                docUrl: "", 
+                github: "https://github.com/ahnyouhan",
+                details: [
+                    "FPGA 보드를 활용하여 실시간 카메라 영상 입력 처리",
+                    "Convex Lens, Grayscale 등 다양한 필터 알고리즘을 Verilog로 하드웨어 구현",
+                    "라인 버퍼(Line Buffer) 설계를 통한 실시간 데이터 처리 최적화",
+                    "VGA 타이밍 컨트롤러 직접 설계 및 모니터 출력 구현"
+                ],
+                role: [
+                    "라인 버퍼 아키텍처 설계 및 구현",
+                    "VGA 컨트롤러 및 타이밍 제어 로직 작성",
+                    "팀원 코드 통합 및 전체 시스템 디버깅"
+                ],
+                tags: ["Verilog", "FPGA", "Image Processing"]
+            },
+            "axi-spi": {
+                title: "SPI/I2C 통신 및 AXI 인터페이스 구현",
+                period: "2025.11 (개인 프로젝트)",
+                summary: "Microblaze SoC 환경에서 SPI, I2C 통신 IP를 설계하고 검증했습니다.",
+                troubleshooting: "AXI 인터페이스의 Ready/Valid 핸드쉐이킹 타이밍 불일치로 인한 데이터 손실 문제가 있었습니다. 파형 분석을 통해 상태 머신을 수정하여 해결했습니다.",
+                reflections: "AMBA 프로토콜을 직접 구현하며 SoC 내부 통신 구조를 깊이 이해했습니다. 특히 마스터와 슬레이브 간의 핸드쉐이킹 과정을 디버깅하며 타이밍 제어의 중요성을 체감했습니다.",
+                docUrl: "", 
+                github: "https://github.com/ahnyouhan",
+                details: [
+                    "AMBA AXI4-Lite 인터페이스 규격 분석 및 슬레이브 IP 설계",
+                    "SPI Master/Slave 및 I2C Master 모듈 Verilog 구현",
+                    "Xilinx Vitis를 활용한 C 언어 드라이버 작성 및 펌웨어 테스트",
+                    "Microblaze Soft Core와 커스텀 IP 연동 검증"
+                ],
+                role: [
+                    "전체 시스템 구조 설계 및 RTL 코딩",
+                    "Testbench 작성을 통한 시뮬레이션 검증",
+                    "FPGA 보드(Basys3) 실장 테스트"
+                ],
+                tags: ["SystemVerilog", "Microblaze", "AXI"]
+            },
+            "risc-v": {
+                title: "RISC-V Core 구현 및 검증",
+                period: "2025.09 ~ 2025.10 (팀 프로젝트 / 3명)",
+                summary: "RISC-V 32I 명령어 집합을 지원하는 프로세서 코어를 설계했습니다.",
+                troubleshooting: "파이프라인 해저드 처리가 복잡하여 데이터 일관성 문제가 발생했습니다. Forwarding Unit을 체계적으로 설계하고, Load-Use Hazard 감지 로직을 보강하여 해결했습니다.",
+                reflections: "프로세서의 동작 원리를 밑바닥부터 구현하며 컴퓨터 구조에 대한 이해도가 크게 향상되었습니다. 팀원들과 모듈별로 역할을 분담하고 인터페이스를 맞추는 과정에서 협업 능력도 길렀습니다.",
+                docUrl: "", 
+                github: "https://github.com/ahnyouhan",
+                details: [
+                    "Single-Cycle 구조에서 시작하여 Multi-Cycle 구조로 고도화",
+                    "Control Unit 및 Data Path 전체 설계",
+                    "Hazard Detection 및 Forwarding Unit 구현으로 파이프라인 최적화",
+                    "SystemVerilog를 활용한 모듈 검증"
+                ],
+                role: [
+                    "ALU 및 Register File 설계",
+                    "Control Unit FSM 설계",
+                    "명령어 검증을 위한 어셈블리 테스트 코드 작성"
+                ],
+                tags: ["RISC-V", "AMBA", "SystemVerilog"]
+            },
+            "uart": {
+                title: "FPGA UART 통신 응용 프로젝트",
+                period: "2025.08.23 ~ 2025.08.27 (개인 프로젝트)",
+                summary: "PC와 FPGA 간의 UART 시리얼 통신을 구현하여 주변장치를 제어했습니다.",
+                troubleshooting: "Baud Rate 오차로 인한 통신 깨짐 현상이 있었습니다. FPGA 클럭 주파수에 맞춰 분주비를 정밀하게 재계산하여 통신 안정성을 확보했습니다.",
+                reflections: "비동기 시리얼 통신의 원리를 확실히 익혔습니다. 하드웨어 레벨에서 통신 프로토콜을 구현하며 데이터 송수신 타이밍과 동기화 이슈를 다루는 경험이 되었습니다.",
+                docUrl: "", 
+                github: "https://github.com/ahnyouhan",
+                details: [
+                    "UART Transmitter/Receiver 모듈 Verilog 설계",
+                    "Baud Rate Generator 구현 (9600bps)",
+                    "PC 터미널 입력을 받아 FPGA의 FND 및 LED 제어",
+                    "스톱워치 데이터 실시간 PC 전송 기능 구현"
+                ],
+                role: [
+                    "UART 프로토콜 분석 및 전체 RTL 설계",
+                    "하드웨어 디버깅 및 타이밍 이슈 해결"
+                ],
+                tags: ["Basys3", "UART", "Verilog"]
+            },
+            "fitness": {
+                title: "피트니스 아이템 통합 검색기",
+                period: "2025.07 (팀 프로젝트 / 4명)",
+                summary: "여러 쇼핑몰의 피트니스 용품 가격을 비교해주는 웹 크롤링 서비스입니다.",
+                troubleshooting: "동적 웹페이지 크롤링 시 데이터 로딩 지연 문제가 있었습니다. Selenium의 WebDriverWait를 적절히 활용하여 데이터가 로드될 때까지 기다리도록 수정했습니다.",
+                reflections: "웹 데이터 수집부터 프론트엔드 표출까지 전체적인 서비스 흐름을 경험했습니다. 팀원들과 데이터를 어떻게 효율적으로 공유할지 고민하며 데이터베이스 설계의 중요성을 깨달았습니다.",
+                docUrl: "", 
+                github: "https://github.com/ahnyouhan",
+                details: [
+                    "Python Selenium/BeautifulSoup을 이용한 웹 크롤러 개발",
+                    "다양한 쇼핑몰 사이트 DOM 구조 분석 및 데이터 추출",
+                    "사용자 검색 키워드에 따른 최저가 정렬 기능 제공",
+                    "HTML/CSS를 활용한 간단한 웹 프론트엔드 구성"
+                ],
+                role: [
+                    "크롤링 엔진 핵심 로직 구현",
+                    "데이터 파싱 및 정제 처리"
+                ],
+                tags: ["Python", "HTML", "Crawling"]
+            },
+            "receipt": {
+                title: "스마트 영수증",
+                period: "2025.05 ~ 2025.06 (개인 프로젝트)",
+                summary: "OCR 기술을 활용하여 종이 영수증을 디지털 데이터로 변환하는 시스템입니다.",
+                troubleshooting: "기울어진 영수증 이미지 인식률이 낮았습니다. OpenCV의 기하학적 변환 기능을 활용하여 영수증 외곽선을 검출하고 평면으로 펴주는 전처리 과정을 추가하여 인식률을 높였습니다.",
+                reflections: "이미지 처리 기술이 실생활 문제를 해결하는 데 어떻게 쓰일 수 있는지 확인했습니다. OCR 엔진의 한계를 전처리 알고리즘으로 보완하며 문제 해결 능력을 길렀습니다.",
+                docUrl: "", 
+                github: "https://github.com/ahnyouhan",
+                details: [
+                    "Google Tesseract OCR 엔진 활용",
+                    "이미지 전처리(OpenCV)를 통한 인식률 향상",
+                    "추출된 텍스트에서 날짜, 금액, 상호명 파싱 알고리즘 구현",
+                    "월별 지출 내역 통계 기능 제공"
+                ],
+                role: [
+                    "전체 프로젝트 기획 및 개발",
+                    "이미지 처리 알고리즘 최적화"
+                ],
+                tags: ["Python", "AI", "OCR"]
+            },
+            "parking": {
+                title: "스마트 주차장",
+                period: "2024.11 ~ 2024.12 (팀 프로젝트 / 3명)",
+                summary: "컴퓨터 비전을 활용한 실시간 주차 공간 인식 및 관제 시스템입니다.",
+                troubleshooting: "조명 변화에 따라 주차 라인 인식 오류가 발생했습니다. 적응형 임계값 처리(Adaptive Thresholding)를 적용하여 다양한 환경에서도 강건하게 동작하도록 개선했습니다.",
+                reflections: "컴퓨터 비전 프로젝트를 수행하며 영상 데이터 처리의 어려움과 재미를 동시에 느꼈습니다. 실시간성을 보장하기 위해 알고리즘 최적화에 많은 노력을 기울였습니다.",
+                docUrl: "", 
+                github: "https://github.com/ahnyouhan",
+                details: [
+                    "OpenCV를 활용한 주차 라인 및 차량 인식",
+                    "Canny Edge Detection 및 Hough Transform 알고리즘 적용",
+                    "실시간 빈 주차 공간 현황 대시보드 구현",
+                    "차량 번호판 인식(LPR) 기초 구현"
+                ],
+                role: [
+                    "영상 처리 알고리즘 구현 (차량 유무 판별)",
+                    "시스템 통합 테스트"
+                ],
+                tags: ["Python", "AI", "Computer Vision"]
+            },
+            "omok": {
+                title: "멀티 플레이 오목 게임",
+                period: "2019.08 (개인 프로젝트)",
+                summary: "Windows API와 소켓 프로그래밍을 활용한 네트워크 오목 게임입니다.",
+                troubleshooting: "네트워크 지연으로 인해 턴 동기화 문제가 발생할 때가 있었습니다. 패킷 구조를 최적화하고, TCP의 Nagle 알고리즘을 비활성화하여 반응 속도를 개선했습니다.",
+                reflections: "네트워크 프로그래밍의 기초를 탄탄히 다질 수 있었습니다. 동기화, 스레드 관리 등 멀티플레이 게임 개발에 필요한 핵심 개념들을 직접 구현해보며 깊이 있게 이해했습니다.",
+                docUrl: "", 
+                github: "https://github.com/ahnyouhan",
+                details: [
+                    "TCP/IP 소켓 통신을 이용한 1:1 대전 기능",
+                    "WinAPI를 활용한 게임 그래픽 및 UI 구현",
+                    "멀티스레딩을 이용한 채팅 및 게임 데이터 동시 처리",
+                    "오목 승리 판정 알고리즘 구현 (33 금지 등)"
+                ],
+                role: [
+                    "서버/클라이언트 네트워크 구조 설계",
+                    "게임 로직 및 UI 전체 구현"
+                ],
+                tags: ["C", "WinAPI", "Socket"]
+            }
+        };
+
+        const modal = document.getElementById("project-modal");
+
+        function openModal(projectId) {
+            const data = projectData[projectId];
+            if (!data) return;
+
+            document.getElementById("modal-title").textContent = data.title;
+            document.getElementById("modal-meta").textContent = data.period;
+            document.getElementById("modal-summary").textContent = data.summary;
+            const githubBtn = document.getElementById("modal-github-link");
+            githubBtn.href = data.github || "https://github.com/ahnyouhan";
+            const tagsContainer = document.getElementById("modal-tags");
+            tagsContainer.innerHTML = "";
+            data.tags.forEach(tag => {
+                const span = document.createElement("span");
+                span.className = "tag";
+                span.textContent = tag;
+                tagsContainer.appendChild(span);
+            });
+            const roleList = document.getElementById("modal-role");
+            roleList.innerHTML = "";
+            if (data.role) {
+                data.role.forEach(item => {
+                    const li = document.createElement("li");
+                    li.textContent = item;
+                    roleList.appendChild(li);
+                });
+            }
+            const detailsList = document.getElementById("modal-details");
+            detailsList.innerHTML = "";
+            if (data.details) {
+                data.details.forEach(item => {
+                    const li = document.createElement("li");
+                    li.textContent = item;
+                    detailsList.appendChild(li);
+                });
+            }
+            const troubleshootingSection = document.getElementById("modal-troubleshooting-section");
+            if (data.troubleshooting) {
+                document.getElementById("modal-troubleshooting").textContent = data.troubleshooting;
+                troubleshootingSection.style.display = "block";
+            } else {
+                troubleshootingSection.style.display = "none";
+            }
+            const reflectionsSection = document.getElementById("modal-reflections-section");
+            if (data.reflections) {
+                document.getElementById("modal-reflections").textContent = data.reflections;
+                reflectionsSection.style.display = "block";
+            } else {
+                reflectionsSection.style.display = "none";
+            }
+            const docSection = document.getElementById("modal-doc-section");
+            const docFrame = document.getElementById("modal-doc-frame");
+            if (data.docUrl) {
+                docFrame.src = data.docUrl;
+                docSection.style.display = "block";
+            } else {
+                docSection.style.display = "none";
+                docFrame.src = "";
+            }
+            modal.classList.add("show");
+        }
+
+        function closeModal() {
+            modal.classList.remove("show");
+            setTimeout(() => {
+                document.getElementById("modal-doc-frame").src = "";
+            }, 300);
+        }
+
+        window.onclick = function(event) {
+            if (event.target == modal) {
+                closeModal();
+            }
+        }
+
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'F12') { e.preventDefault(); }
+            if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S' || e.key === 'a' || e.key === 'A' || e.key === 'c' || e.key === 'C')) {
+                e.preventDefault();
+            }
+        });
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const targetId = this.getAttribute('href');
+                let targetPosition = 0;
+                if (targetId !== '#') {
+                    const targetElement = document.querySelector(targetId);
+                    if (!targetElement) return;
+                    const headerOffset = window.innerWidth <= 900 ? 60 : 0;
+                    const elementPosition = targetElement.getBoundingClientRect().top;
+                    targetPosition = elementPosition + window.pageYOffset - headerOffset;
+                }
+                const startPosition = window.pageYOffset;
+                const distance = targetPosition - startPosition;
+                const duration = 500;
+                let start = null;
+                function step(timestamp) {
+                    if (!start) start = timestamp;
+                    const progress = timestamp - start;
+                    const ease = (t) => t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+                    window.scrollTo(0, startPosition + distance * ease(Math.min(progress / duration, 1)));
+                    if (progress < duration) window.requestAnimationFrame(step);
+                }
+                window.requestAnimationFrame(step);
+            });
+        });
+    </script>
+</body>
+</html>
