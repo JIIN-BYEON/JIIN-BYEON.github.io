@@ -5,20 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>변지인 | 포트폴리오</title>
     
-    <!-- 1. Fonts -->
-    <!-- [MODERN FONT UPDATE] Pretendard (Korean Standard Modern) -->
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
-    
-    <!-- Google Fonts for English Point Font (Space Grotesk) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
-    
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
         :root {
-            /* [Theme] Absolute Black & White */
             --bg-color: #ffffff;
             --text-color: #111111; 
             --sidebar-bg: #0a0a0a;
@@ -33,9 +25,7 @@
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
-
         html { scroll-behavior: auto; }
-
         body {
             font-family: var(--font-main);
             background-color: var(--bg-color);
@@ -43,8 +33,6 @@
             margin-left: var(--sidebar-width);
             overflow-x: hidden;
             letter-spacing: -0.02em;
-            
-            /* 보안 설정 */
             -webkit-user-select: none;
             -moz-user-select: none;
             -ms-user-select: none;
@@ -53,283 +41,142 @@
 
         /* --- [Sidebar] --- */
         .sidebar {
-            position: fixed;
-            top: 0; left: 0;
-            width: var(--sidebar-width);
-            height: 100vh;
-            background-color: var(--sidebar-bg);
-            color: var(--sidebar-text);
+            position: fixed; top: 0; left: 0;
+            width: var(--sidebar-width); height: 100vh;
+            background-color: var(--sidebar-bg); color: var(--sidebar-text);
             padding: 3rem 2rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-            z-index: 1000;
-            border-right: 1px solid #222;
+            display: flex; flex-direction: column; justify-content: space-between;
+            z-index: 1000; border-right: 1px solid #222;
         }
-
-        .logo-area {
-            border-bottom: 1px solid #222;
-            padding-bottom: 2rem;
-        }
-
+        .logo-area { border-bottom: 1px solid #222; padding-bottom: 2rem; }
         .logo-area h1 {
-            font-family: var(--font-title); 
-            font-size: 2.5rem;
-            font-weight: 800;
-            letter-spacing: -0.05em;
-            line-height: 1.2;
-            word-break: keep-all;
+            font-family: var(--font-title); font-size: 2.5rem; font-weight: 800;
+            letter-spacing: -0.05em; line-height: 1.2; word-break: keep-all;
         }
-
-        .nav-menu {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0; 
-        }
-
+        .nav-menu { list-style: none; display: flex; flex-direction: column; gap: 0; }
         .nav-menu li a {
-            display: block;
-            padding: 1.1rem 0;
-            color: #888;
-            text-decoration: none;
-            font-family: var(--font-eng);
-            font-size: 1.05rem;
-            text-transform: uppercase;
-            letter-spacing: 0.5px;
-            transition: 0.3s;
-            border-bottom: 1px solid #1a1a1a;
-            font-weight: 500;
+            display: block; padding: 1.1rem 0; color: #888; text-decoration: none;
+            font-family: var(--font-eng); font-size: 1.05rem; text-transform: uppercase;
+            letter-spacing: 0.5px; transition: 0.3s; border-bottom: 1px solid #1a1a1a; font-weight: 500;
         }
-
-        .nav-menu li a:hover {
-            color: #fff;
-            padding-left: 10px; 
-        }
-
+        .nav-menu li a:hover { color: #fff; padding-left: 10px; }
         .sidebar-footer {
-            font-family: var(--font-eng);
-            font-size: 0.7rem;
-            color: #555;
-            letter-spacing: 1px;
-            line-height: 1.5;
+            font-family: var(--font-eng); font-size: 0.7rem; color: #555;
+            letter-spacing: 1px; line-height: 1.5;
         }
 
         /* --- [Main Content] --- */
         main {
-            width: 100%;
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 5rem;
+            width: 100%; max-width: 1400px; margin: 0 auto;
+            padding: 0 4rem; transition: padding 0.3s ease;
         }
 
         .sec-header {
-            display: flex;
-            align-items: baseline;
-            gap: 1.2rem;
-            margin-bottom: 3.5rem;
-            padding-top: 7rem;
-            border-bottom: 3px solid var(--line-color);
-            padding-bottom: 1rem;
+            display: flex; align-items: baseline; gap: 1.2rem;
+            margin-bottom: 3.5rem; padding-top: 7rem;
+            border-bottom: 3px solid var(--line-color); padding-bottom: 1rem;
         }
-        
         .sec-num {
-            font-family: var(--font-eng);
-            font-size: 3.5rem;
-            font-weight: 700;
-            color: transparent;
-            -webkit-text-stroke: 1px var(--text-color);
-            line-height: 1;
+            font-family: var(--font-eng); font-size: 3.5rem; font-weight: 700;
+            color: transparent; -webkit-text-stroke: 1px var(--text-color); line-height: 1;
         }
-
         .sec-title {
-            font-family: var(--font-title);
-            font-size: 2.8rem;
-            font-weight: 800;
-            color: var(--text-color);
-            letter-spacing: -0.03em;
-            line-height: 1;
+            font-family: var(--font-title); font-size: 2.8rem; font-weight: 800;
+            color: var(--text-color); letter-spacing: -0.03em; line-height: 1; word-break: keep-all;
         }
 
         /* --- [Hero Section] --- */
         .hero {
-            height: 90vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: flex-start;
+            min-height: 90vh; padding-top: 10vh; padding-bottom: 10vh;
+            display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
         }
-
         .hero-text {
-            font-family: var(--font-eng);
-            font-size: 6.5rem;
-            font-weight: 700;
-            line-height: 0.95;
-            margin-bottom: 2.5rem;
-            word-break: keep-all;
-            letter-spacing: -2px;
+            font-family: var(--font-eng); font-size: clamp(3rem, 8vw, 6.5rem);
+            font-weight: 700; line-height: 0.95; margin-bottom: 2.5rem;
+            word-break: keep-all; letter-spacing: -2px;
         }
-
         .hero-sub {
-            font-size: 2rem;
-            color: #111;
-            margin-bottom: 3.5rem;
-            max-width: 800px;
-            font-weight: 700;
-            line-height: 1.4;
-            letter-spacing: -0.02em;
+            font-size: clamp(1.2rem, 3vw, 2rem); color: #111; margin-bottom: 3.5rem;
+            max-width: 800px; font-weight: 700; line-height: 1.4; letter-spacing: -0.02em; word-break: keep-all;
         }
-
-        .btn-group {
-            display: flex;
-            gap: 1.2rem;
-        }
-
+        .btn-group { display: flex; gap: 1.2rem; flex-wrap: wrap; }
         .btn-black {
-            padding: 1.1rem 2.8rem;
-            background: #111;
-            color: #fff;
-            text-decoration: none;
-            font-family: var(--font-eng);
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: 0.3s;
-            border: 1px solid #111;
-            letter-spacing: 1px;
+            padding: 1.1rem 2.8rem; background: #111; color: #fff; text-decoration: none;
+            font-family: var(--font-eng); font-weight: 600; font-size: 0.95rem;
+            transition: 0.3s; border: 1px solid #111; letter-spacing: 1px; white-space: nowrap;
         }
-
-        .btn-black:hover {
-            background: #fff;
-            color: #111;
-        }
-
+        .btn-black:hover { background: #fff; color: #111; }
         .btn-outline {
-            padding: 1.1rem 2.8rem;
-            background: #fff;
-            color: #111;
-            text-decoration: none;
-            font-family: var(--font-eng);
-            font-weight: 600;
-            font-size: 0.95rem;
-            border: 1px solid #111;
-            transition: 0.3s;
-            letter-spacing: 1px;
+            padding: 1.1rem 2.8rem; background: #fff; color: #111; text-decoration: none;
+            font-family: var(--font-eng); font-weight: 600; font-size: 0.95rem;
+            border: 1px solid #111; transition: 0.3s; letter-spacing: 1px; white-space: nowrap;
         }
+        .btn-outline:hover { background: #111; color: #fff; }
 
-        .btn-outline:hover {
-            background: #111;
-            color: #fff;
-        }
-
-        /* --- [About Me] Layout Updated --- */
+        /* --- [About Me] Layout: Default (Desktop) is Row --- */
         .about-container {
             display: flex;
+            flex-direction: row; /* 기본 가로 배치 */
             gap: 4rem;
             align-items: flex-start;
+            flex-wrap: nowrap; /* PC에서는 줄바꿈 금지 */
         }
 
-        /* 프로필 사진 플레이스홀더 */
         .profile-photo {
             width: 320px;
             height: 400px;
-            background-color: #f0f0f0; /* 사진 들어갈 자리 색상 */
+            background-color: #f0f0f0;
             border: 1px solid #ddd;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-family: var(--font-eng);
-            color: #aaa;
-            font-weight: 600;
-            overflow: hidden; /* 이미지 넘침 방지 */
+            flex-shrink: 0; 
+            display: flex; align-items: center; justify-content: center;
+            font-family: var(--font-eng); color: #aaa; font-weight: 600;
+            overflow: hidden;
         }
-
-        .profile-photo img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
+        .profile-photo img { width: 100%; height: 100%; object-fit: cover; }
 
         .about-details {
             flex-grow: 1;
+            min-width: 0; /* flex container 내부 오버플로우 방지 */
+            width: 100%;
         }
 
         .about-desc {
-            font-size: 1.3rem;
-            line-height: 1.7;
-            font-weight: 400;
-            margin-bottom: 3rem;
-            color: #222;
-            word-break: keep-all;
-            -webkit-user-select: text;
-            -moz-user-select: text;
-            -ms-user-select: text;
-            user-select: text;
+            font-size: 1.3rem; line-height: 1.7; font-weight: 400; margin-bottom: 3rem;
+            color: #222; word-break: keep-all; -webkit-user-select: text; user-select: text;
         }
 
         .info-list {
             display: grid;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
             border-top: 1px solid #111;
         }
-
-        .info-item {
-            display: flex;
-            border-bottom: 1px solid #e5e5e5;
-            padding: 1.5rem 0;
-            align-items: center;
-        }
-        
-        .info-item:nth-child(odd) { padding-right: 2rem; border-right: 1px solid #e5e5e5; }
-        .info-item:nth-child(even) { padding-left: 2rem; }
-
+        .info-item { display: flex; border-bottom: 1px solid #e5e5e5; padding: 1.5rem 0; align-items: center; padding-right: 1rem; }
         .info-label {
-            font-family: var(--font-eng);
-            width: 100px;
-            font-weight: 600;
-            color: #888;
-            text-transform: uppercase;
-            font-size: 0.85rem;
-            letter-spacing: 0.5px;
+            font-family: var(--font-eng); width: 100px; font-weight: 600; color: #888;
+            text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; flex-shrink: 0;
         }
-
         .info-value {
-            font-weight: 600;
-            color: #111;
-            font-size: 1.05rem;
-            -webkit-user-select: text;
-            -moz-user-select: text;
-            -ms-user-select: text;
-            user-select: text;
+            font-weight: 600; color: #111; font-size: 1.05rem;
+            -webkit-user-select: text; user-select: text; word-break: break-all;
         }
 
         /* --- [Experience] --- */
         .exp-container { border-left: 1px solid #111; }
         .exp-row {
-            display: flex;
-            border-bottom: 1px solid #e5e5e5;
-            padding: 3rem 0;
-            padding-left: 2.5rem;
-            transition: 0.3s;
+            display: flex; border-bottom: 1px solid #e5e5e5; padding: 3rem 0;
+            padding-left: 2.5rem; transition: 0.3s; flex-wrap: wrap; gap: 1rem;
         }
         .exp-row:hover { background-color: #f8f8f8; }
         .exp-date {
-            width: 240px;
-            font-family: var(--font-eng);
-            font-weight: 600;
-            font-size: 1.15rem;
-            color: #111;
-            flex-shrink: 0;
-            letter-spacing: -0.5px;
+            width: 240px; font-family: var(--font-eng); font-weight: 600;
+            font-size: 1.15rem; color: #111; flex-shrink: 0; letter-spacing: -0.5px;
         }
+        .exp-content { flex: 1; min-width: 280px; }
         .exp-content h3 {
-            font-size: 1.45rem;
-            font-weight: 700;
-            margin-bottom: 0.6rem;
-            font-family: var(--font-title);
-            color: #111;
+            font-size: 1.45rem; font-weight: 700; margin-bottom: 0.6rem;
+            font-family: var(--font-title); color: #111; word-break: keep-all;
         }
-        .exp-content p { color: #555; font-size: 1.05rem; }
+        .exp-content p { color: #555; font-size: 1.05rem; word-break: keep-all; }
 
         /* --- [Skills] --- */
         .skills-wrapper { display: flex; flex-direction: column; gap: 2.5rem; }
@@ -347,131 +194,55 @@
             border-color: #111; background: #111; color: #fff; transform: translateY(-2px);
         }
 
-        /* --- [Projects] List Style with Images (Updated Size) --- */
+        /* --- [Projects] --- */
         .project-list { display: flex; flex-direction: column; }
-
         .project-item {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 3rem 0; /* 세로 여백 늘림 */
-            border-bottom: 1px solid #111;
-            cursor: pointer;
-            position: relative;
-            transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
-            background: #fff;
+            display: flex; justify-content: space-between; align-items: center;
+            padding: 3rem 0; border-bottom: 1px solid #111; cursor: pointer;
+            position: relative; transition: all 0.3s cubic-bezier(0.165, 0.84, 0.44, 1);
+            background: #fff; gap: 2rem;
         }
-
         .project-item:first-child { border-top: 1px solid #111; }
-
-        .project-item:hover {
-            background: #111;
-            padding-left: 20px;
-            padding-right: 20px;
-        }
-
-        .project-item:hover .pj-title,
-        .project-item:hover .pj-desc,
-        .project-item:hover .pj-meta {
-            color: #fff;
-        }
+        .project-item:hover { background: #111; padding-left: 20px; padding-right: 20px; }
+        .project-item:hover .pj-title, .project-item:hover .pj-desc, .project-item:hover .pj-meta { color: #fff; }
+        .pj-left { display: flex; align-items: center; gap: 3rem; flex-grow: 1; flex-wrap: wrap; }
         
-        .pj-left {
-            display: flex;
-            align-items: center;
-            gap: 3rem; /* 간격 늘림 */
-            flex-grow: 1; 
-        }
-
-        /* [수정] 프로젝트 이미지 썸네일 크기 확대 */
         .pj-img {
-            width: 280px; /* 160px -> 280px */
-            height: 160px; /* 90px -> 160px */
-            background-color: #f0f0f0; 
-            border: 1px solid #ddd;
-            flex-shrink: 0;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: #aaa;
-            font-size: 0.9rem;
-            font-family: var(--font-eng);
-            overflow: hidden; /* 이미지 넘침 방지 */
+            width: 280px; height: 160px; background-color: #f0f0f0; border: 1px solid #ddd;
+            flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+            color: #aaa; font-size: 0.9rem; font-family: var(--font-eng); overflow: hidden;
         }
-        
-        .pj-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        /* 호버시 이미지 테두리 변경 */
-        .project-item:hover .pj-img {
-            border-color: #555;
-            opacity: 0.9;
-        }
-
-        .pj-info {
-            display: flex;
-            flex-direction: column;
-        }
-
+        .pj-img img { width: 100%; height: 100%; object-fit: cover; }
+        .project-item:hover .pj-img { border-color: #555; opacity: 0.9; }
+        .pj-info { display: flex; flex-direction: column; min-width: 250px; }
         .pj-title {
-            font-family: var(--font-title);
-            font-size: 1.8rem; /* 폰트 사이즈 키움 */
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            color: #111;
-            transition: 0.3s;
-            letter-spacing: -0.03em;
+            font-family: var(--font-title); font-size: clamp(1.4rem, 2.5vw, 1.8rem);
+            font-weight: 700; margin-bottom: 0.5rem; color: #111; transition: 0.3s;
+            letter-spacing: -0.03em; word-break: keep-all;
         }
-
         .pj-desc {
-            font-size: 1.1rem;
-            color: #666;
-            font-family: var(--font-eng); 
-            transition: 0.3s;
-            font-weight: 400;
+            font-size: 1.1rem; color: #666; font-family: var(--font-eng); 
+            transition: 0.3s; font-weight: 400; word-break: keep-all;
         }
-
         .pj-meta {
-            font-family: var(--font-title); 
-            font-size: 1rem;
-            color: #111;
-            text-align: right;
-            transition: 0.3s;
-            font-weight: 500;
-            line-height: 1.6;
-            min-width: 160px; 
+            font-family: var(--font-title); font-size: 1rem; color: #111; text-align: right;
+            transition: 0.3s; font-weight: 500; line-height: 1.6; min-width: 140px; white-space: nowrap;
         }
-
         .pj-arrow {
-            opacity: 0;
-            color: #fff;
-            font-size: 1.8rem;
-            transform: translateX(-20px);
-            transition: 0.3s;
-            margin-left: 2rem;
+            opacity: 0; color: #fff; font-size: 1.8rem; transform: translateX(-20px);
+            transition: 0.3s; margin-left: 1rem;
         }
+        .project-item:hover .pj-arrow { opacity: 1; transform: translateX(0); }
 
-        .project-item:hover .pj-arrow {
-            opacity: 1;
-            transform: translateX(0);
-        }
-
-        /* --- [Contact Footer] --- */
+        /* --- [Footer] --- */
         .footer-sec {
-            margin-top: 10rem;
-            background: #0a0a0a;
-            color: #fff;
-            padding: 6rem 2rem;
-            text-align: center;
-            margin-left: -5rem; 
-            width: calc(100% + 10rem);
+            margin-top: 10rem; background: #0a0a0a; color: #fff; padding: 6rem 2rem;
+            text-align: center; margin-left: -4rem; width: calc(100% + 8rem);
         }
         .contact-link {
-            font-family: var(--font-eng); font-size: 2.5rem; color: #fff; text-decoration: none;
-            border-bottom: 2px solid #fff; padding-bottom: 8px; transition: 0.3s; font-weight: 700;
+            font-family: var(--font-eng); font-size: clamp(1.5rem, 5vw, 2.5rem);
+            color: #fff; text-decoration: none; border-bottom: 2px solid #fff;
+            padding-bottom: 8px; transition: 0.3s; font-weight: 700; word-break: break-all;
         }
         .contact-link:hover { color: #888; border-color: #888; }
         .copyright { margin-top: 3rem; color: #555; font-size: 0.85rem; font-family: var(--font-eng); }
@@ -497,8 +268,10 @@
         .close-btn { font-size: 3.5rem; line-height: 0.5; cursor: pointer; transition: 0.3s; color: #111; }
         .close-btn:hover { color: red; transform: rotate(90deg); }
         .modal-body { padding: 3.5rem; overflow-y: auto; }
-        
-        .m-title { font-size: 3rem; font-family: var(--font-title); font-weight: 800; margin-bottom: 0.5rem; letter-spacing: -0.03em; }
+        .m-title { 
+            font-size: clamp(2rem, 5vw, 3rem); font-family: var(--font-title); font-weight: 800;
+            margin-bottom: 0.5rem; letter-spacing: -0.03em; line-height: 1.2; word-break: keep-all; 
+        }
         .m-meta { font-family: var(--font-title); color: #666; font-size: 1.2rem; margin-bottom: 1.5rem; display: block; font-weight: 500; }
         .m-section { margin-bottom: 3.5rem; }
         .m-section h3 {
@@ -506,12 +279,31 @@
             border-bottom: 2px solid #111; padding-bottom: 0.8rem; margin-bottom: 1.2rem; letter-spacing: -0.02em;
         }
         .m-tags .tag { 
-            background: #111; color: #fff; padding: 0.5rem 1.2rem; margin-right: 6px; 
-            font-size: 0.9rem; font-family: var(--font-eng); border-radius: 2px;
+            background: #111; color: #fff; padding: 0.5rem 1.2rem; margin-right: 6px; margin-bottom: 6px;
+            font-size: 0.9rem; font-family: var(--font-eng); border-radius: 2px; display: inline-block;
         }
-        .trouble-box { border: 1px solid #ddd; padding: 2rem; background: #fcfcfc; border-left: 4px solid #111; }
+        .trouble-box { border: 1px solid #ddd; padding: 2rem; background: #fcfcfc; border-left: 4px solid #111; word-break: keep-all; line-height: 1.6; }
 
-        /* --- [Responsive] --- */
+
+        /* --- [Responsive Strategies] --- */
+
+        /* 1. Intermediate (Windows Half Screen / Small Desktop) : 900px ~ 1300px */
+        @media (max-width: 1300px) {
+            main { padding: 0 3rem; }
+            .sidebar { width: 240px; padding: 2rem 1.5rem; }
+            body { margin-left: 240px; }
+            .hero-text { font-size: 4.5rem; }
+            .pj-left { gap: 1.5rem; }
+            .pj-img { width: 200px; height: 120px; }
+            .project-item { padding: 2rem 0; }
+            
+            /* 중간 화면에서도 가로 배치 유지하되 갭만 조정 */
+            .about-container { gap: 2.5rem; }
+            .profile-photo { width: 260px; height: 340px; }
+        }
+
+        /* 2. Tablet / Mobile : < 900px */
+        /* [중요] 여기서부터 프로필 사진을 위아래(Column) 배치를 적용합니다 */
         @media (max-width: 900px) {
             body { margin-left: 0; padding-top: 60px; }
             .sidebar {
@@ -521,40 +313,57 @@
             .nav-menu, .sidebar-footer { display: none; }
             .logo-area { border-bottom: none; padding-bottom: 0; }
             .logo-area h1 { font-size: 1.5rem; }
+            
             main { padding: 0 1.5rem; width: 100%; max-width: 100%; }
             .sec-header { padding-top: 4rem; gap: 0.8rem; border-bottom-width: 2px; }
             .sec-num { font-size: 2.5rem; }
             .sec-title { font-size: 2rem; }
-            .hero-text { font-size: 3.8rem; letter-spacing: -1px; }
-            .hero-sub { font-size: 1.5rem; }
+            .hero-text { font-size: 3.5rem; letter-spacing: -1px; }
+            .hero-sub { font-size: 1.3rem; }
             
-            /* About Me 반응형 */
-            .about-container { flex-direction: column; gap: 2rem; }
-            .profile-photo { width: 100%; max-width: 300px; height: 300px; margin: 0 auto; }
+            /* About Me: Mobile/Tablet -> Column Layout (Top/Bottom) */
+            .about-container { 
+                flex-direction: column; /* 세로 배치 */
+                align-items: center;    /* 중앙 정렬 */
+                gap: 2rem; 
+            }
+            .profile-photo { 
+                width: 100%; max-width: 350px; /* 너무 커지지 않게 제한 */
+                height: auto; aspect-ratio: 3/4; margin: 0 auto; 
+            }
+            .about-details {
+                width: 100%;
+            }
             .info-list { grid-template-columns: 1fr; }
-            .info-item:nth-child(odd) { border-right: none; padding-right: 0; }
-            .info-item:nth-child(even) { padding-left: 0; }
+            .info-item { border-right: none; padding-right: 0; }
             
-            /* Projects 반응형 */
-            .project-item { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 2rem 1.5rem; }
+            /* Projects Mobile */
+            .project-item { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 2rem 0; }
             .pj-left { width: 100%; gap: 1rem; flex-direction: column; align-items: flex-start; }
-            .pj-img { width: 100%; height: 200px; } /* 모바일에서는 이미지를 크게 */
-            .pj-meta { text-align: left; margin-top: 0.5rem; color: #888; }
+            .pj-img { width: 100%; height: 200px; }
+            .pj-meta { text-align: left; margin-top: 0.5rem; color: #888; width: 100%; }
             .pj-arrow { display: none; }
-            .project-item:hover { transform: none; padding-left: 1.5rem; padding-right: 1.5rem; }
+            .project-item:hover { transform: none; padding-left: 1rem; padding-right: 1rem; }
             
             .modal-content { height: 100%; border: none; }
             .modal-header { padding: 1.5rem; }
             .modal-body { padding: 1.5rem; }
-            .m-title { font-size: 2rem; }
             .footer-sec { margin-left: -1.5rem; width: calc(100% + 3rem); padding: 4rem 1.5rem; }
-            .contact-link { font-size: 1.5rem; }
+        }
+        
+        /* 3. Small Mobile */
+        @media (max-width: 480px) {
+            .hero-text { font-size: 2.8rem; }
+            .btn-group { flex-direction: column; width: 100%; }
+            .btn-black, .btn-outline { width: 100%; text-align: center; }
+            .sec-title { font-size: 1.8rem; }
+            .profile-photo { width: 100%; }
+            .pj-img { height: 180px; }
         }
     </style>
 </head>
 <body oncontextmenu="return false">
 
-    <!-- Sidebar -->
     <nav class="sidebar">
         <div class="logo-area">
             <h1>변지인</h1>
@@ -573,10 +382,8 @@
         </div>
     </nav>
 
-    <!-- Main Content -->
     <main>
         
-        <!-- Hero Section -->
         <section class="hero">
             <h2 class="hero-text">
                 IMAGINE,<br>
@@ -592,7 +399,6 @@
             </div>
         </section>
 
-        <!-- About Section (Layout Changed) -->
         <section id="about">
             <div class="sec-header">
                 <span class="sec-num">02</span>
@@ -600,7 +406,6 @@
             </div>
             
             <div class="about-container">
-                <!-- 프로필 사진 자리 -->
                 <div class="profile-photo">
                     <img src="./images/이월이.jpg" alt="프로젝트">
                 </div>
@@ -642,7 +447,6 @@
             </div>
         </section>
 
-        <!-- Projects Section (Updated) -->
         <section id="projects">
             <div class="sec-header">
                 <span class="sec-num">03</span>
@@ -651,24 +455,20 @@
 
             <div class="project-list">
                 
-                <!-- 1. Video Filter -->
                 <div class="project-item" onclick="openModal('video-filter')">
                     <div class="pj-left">
-                        <!-- 이미지 썸네일 자리 -->
                         <div class="pj-img">PROJECT IMG</div>
                         <div class="pj-info">
                             <div class="pj-title">영상 처리 및 필터 구현</div>
                             <div class="pj-desc">FPGA Real-time Image Processing & VGA Controller</div>
                         </div>
                     </div>
-                    <!-- 한글화 적용 -->
                     <div class="pj-meta">
                         2025.11 - 12<br>팀 프로젝트 (4명)
                     </div>
                     <div class="pj-arrow"><i class="fas fa-arrow-right"></i></div>
                 </div>
 
-                <!-- 2. AXI SPI -->
                 <div class="project-item" onclick="openModal('axi-spi')">
                     <div class="pj-left">
                         <div class="pj-img">PROJECT IMG</div>
@@ -683,7 +483,6 @@
                     <div class="pj-arrow"><i class="fas fa-arrow-right"></i></div>
                 </div>
 
-                <!-- 3. RISC-V -->
                 <div class="project-item" onclick="openModal('risc-v')">
                     <div class="pj-left">
                         <div class="pj-img">PROJECT IMG</div>
@@ -698,7 +497,6 @@
                     <div class="pj-arrow"><i class="fas fa-arrow-right"></i></div>
                 </div>
 
-                <!-- 4. UART -->
                 <div class="project-item" onclick="openModal('uart')">
                     <div class="pj-left">
                         <div class="pj-img">PROJECT IMG</div>
@@ -713,7 +511,6 @@
                     <div class="pj-arrow"><i class="fas fa-arrow-right"></i></div>
                 </div>
 
-                <!-- 5. Fitness -->
                 <div class="project-item" onclick="openModal('fitness')">
                     <div class="pj-left">
                         <div class="pj-img">PROJECT IMG</div>
@@ -728,7 +525,6 @@
                     <div class="pj-arrow"><i class="fas fa-arrow-right"></i></div>
                 </div>
 
-                <!-- 6. Receipt -->
                 <div class="project-item" onclick="openModal('receipt')">
                     <div class="pj-left">
                         <div class="pj-img">PROJECT IMG</div>
@@ -742,7 +538,6 @@
                     </div>
                     <div class="pj-arrow"><i class="fas fa-arrow-right"></i></div>
                 </div>
-                 <!-- 7. Parking -->
                  <div class="project-item" onclick="openModal('parking')">
                     <div class="pj-left">
                         <div class="pj-img">PROJECT IMG</div>
@@ -756,7 +551,6 @@
                     </div>
                     <div class="pj-arrow"><i class="fas fa-arrow-right"></i></div>
                 </div>
-                 <!-- 8. Omok -->
                  <div class="project-item" onclick="openModal('omok')">
                     <div class="pj-left">
                         <div class="pj-img">PROJECT IMG</div>
@@ -774,7 +568,6 @@
             </div>
         </section>
 
-        <!-- Experience Section -->
         <section id="experience">
             <div class="sec-header">
                 <span class="sec-num">04</span>
@@ -797,7 +590,6 @@
             </div>
         </section>
 
-        <!-- Skills Section -->
         <section id="skills">
             <div class="sec-header">
                 <span class="sec-num">05</span>
@@ -825,9 +617,8 @@
             </div>
         </section>
 
-        <!-- Footer -->
         <footer id="contact" class="footer-sec">
-            <h2 style="font-family: var(--font-eng); margin-bottom: 2rem;">LET'S WORK TOGETHER</h2>
+            <h2 style="font-family: var(--font-eng); margin-bottom: 2rem; font-size: clamp(1.5rem, 4vw, 2.5rem);">LET'S WORK TOGETHER</h2>
             <a href="mailto:quswldls3162@naver.com" class="contact-link">quswldls3162@naver.com</a>
             <div class="copyright">
                 <p>010-3827-3162</p>
@@ -838,11 +629,10 @@
 
     </main>
 
-    <!-- Modal -->
     <div id="project-modal" class="modal">
         <div class="modal-content">
             <div class="modal-header">
-                <div>
+                <div style="flex: 1; padding-right: 20px;">
                     <h2 id="modal-title" class="m-title">Project Title</h2>
                     <span id="modal-meta" class="m-meta">Period / Team</span>
                     <div id="modal-tags" class="m-tags"></div>
@@ -889,12 +679,11 @@
         </div>
     </div>
 
-    <!-- Script -->
     <script>
         const projectData = {
             "video-filter": {
                 title: "영상 처리 및 필터 구현",
-                period: "2025.11 ~ 2025.12 (팀 프로젝트 / 4명)", // [수정] 모달 내부 데이터도 한글화
+                period: "2025.11 ~ 2025.12 (팀 프로젝트 / 4명)", 
                 summary: "실시간 영상 필터(Convex Lens 등) 및 VGA 컨트롤러 구현 프로젝트입니다.",
                 reflections: "이번 프로젝트를 통해 FPGA의 타이밍 제어에 대해 깊이 이해할 수 있었습니다. 특히 라인 버퍼를 설계하며 메모리 대역폭 문제와 실시간 처리의 트레이드오프를 경험했고, 이를 통해 최적화된 아키텍처를 도출해낼 수 있었습니다.",
                 troubleshooting: "초기 라인 버퍼 설계 시 타이밍 위반 문제가 발생했습니다. 파이프라인 단계를 추가하여 경로 지연을 줄이고, 클럭 주파수를 최적화하여 해결했습니다.",
@@ -1039,7 +828,7 @@
                 title: "멀티 플레이 오목 게임",
                 period: "2019.08 (개인 프로젝트)",
                 summary: "Windows API와 소켓 프로그래밍을 활용한 네트워크 오목 게임입니다.",
-                troubleshooting: "네트워크 지연으로 인해 턴 동기화 문제가 발생할 때가 있었습니다. 패킷 구조를 최적화하고, TCP의 Nagle 알고리즘을 비활성화하여 반응 속도를 개선했습니다.",
+                troubleshooting: "네트워크 지연으로 인해 턴 동기화 문제가 발생할 때가 있었습니다. 패킷 구조를 최적화하여 TCP의 Nagle 알고리즘 이슈를 제어하고 반응 속도를 개선했습니다.",
                 reflections: "네트워크 프로그래밍의 기초를 탄탄히 다질 수 있었습니다. 동기화, 스레드 관리 등 멀티플레이 게임 개발에 필요한 핵심 개념들을 직접 구현해보며 깊이 있게 이해했습니다.",
                 docUrl: "", 
                 github: "https://github.com/ahnyouhan",
@@ -1118,10 +907,12 @@
                 docFrame.src = "";
             }
             modal.classList.add("show");
+            document.body.style.overflow = "hidden"; // 모달 띄울 때 배경 스크롤 막기
         }
 
         function closeModal() {
             modal.classList.remove("show");
+            document.body.style.overflow = "auto"; // 스크롤 다시 허용
             setTimeout(() => {
                 document.getElementById("modal-doc-frame").src = "";
             }, 300);
