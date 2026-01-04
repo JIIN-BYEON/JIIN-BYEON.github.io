@@ -7,6 +7,10 @@
     
     <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.9/dist/web/static/pretendard.min.css" />
     <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@700;800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@800;900&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@700;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
     <style>
@@ -19,9 +23,8 @@
             
             --sidebar-width: 280px;
             
-            --font-main: 'Pretendard Variable', Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
-            --font-eng: 'Space Grotesk', sans-serif; 
-            --font-title: 'Pretendard Variable', Pretendard, sans-serif;
+            --font-main: 'Pretendard Variable', sans-serif;
+            --font-eng: 'Inter', sans-serif;
         }
 
         * { box-sizing: border-box; margin: 0; padding: 0; }
@@ -74,7 +77,7 @@
         .sec-header {
             display: flex; align-items: baseline; gap: 1.2rem;
             margin-bottom: 3.5rem; padding-top: 7rem;
-            border-bottom: 3px solid var(--line-color); padding-bottom: 1rem;
+            border-bottom: 1px solid var(--line-color); padding-bottom: 1rem;
         }
         .sec-num {
             font-family: var(--font-eng); font-size: 3.5rem; font-weight: 700;
@@ -87,17 +90,40 @@
 
         /* --- [Hero Section] --- */
         .hero {
-            min-height: 90vh; padding-top: 10vh; padding-bottom: 10vh;
-            display: flex; flex-direction: column; justify-content: center; align-items: flex-start;
+            min-height: 90vh; 
+            padding-top: 5vh;
+            padding-bottom: 10vh;
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: flex-start;
         }
         .hero-text {
-            font-family: var(--font-eng); font-size: clamp(3rem, 8vw, 6.5rem);
-            font-weight: 700; line-height: 0.95; margin-bottom: 2.5rem;
-            word-break: keep-all; letter-spacing: -2px;
+            font-family: 'Inter', sans-serif;
+            font-size: clamp(2.5rem, 5vw, 4rem); 
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            letter-spacing: -0.04em;
+            color: #000;
         }
+
+        .hero-divider {
+            width: 45px;
+            height: 4px;
+            background: #111;
+            margin: 1.5rem 0;
+        }
+
         .hero-sub {
-            font-size: clamp(1.2rem, 3vw, 2rem); color: #111; margin-bottom: 3.5rem;
-            max-width: 800px; font-weight: 700; line-height: 1.4; letter-spacing: -0.02em; word-break: keep-all;
+            font-family: 'Pretendard Variable', sans-serif;
+            font-size: clamp(1.1rem, 1.3vw, 1.25rem); 
+            color: #333;
+            max-width: 600px; 
+            font-weight: 500;
+            line-height: 1.7;
+            letter-spacing: -0.02em;
+            word-break: keep-all;
         }
         .btn-group { display: flex; gap: 1.2rem; flex-wrap: wrap; }
         .btn-black {
@@ -159,6 +185,10 @@
             font-weight: 600; color: #111; font-size: 1.05rem;
             -webkit-user-select: text; user-select: text; word-break: break-all;
         }
+        .info-value a:hover {
+            color: #555;
+            transform: translateX(5px);
+        }
 
         /* --- [Experience] --- */
         .exp-container { border-left: 1px solid #111; }
@@ -216,13 +246,15 @@
         .project-item:hover .pj-img { border-color: #555; opacity: 0.9; }
         .pj-info { display: flex; flex-direction: column; min-width: 250px; }
         .pj-title {
-            font-family: var(--font-title); font-size: clamp(1.4rem, 2.5vw, 1.8rem);
-            font-weight: 700; margin-bottom: 0.5rem; color: #111; transition: 0.3s;
-            letter-spacing: -0.03em; word-break: keep-all;
+            font-family: var(--font-main);
+            font-weight: 600;
+            letter-spacing: -0.03em;
         }
         .pj-desc {
-            font-size: 1.1rem; color: #666; font-family: var(--font-eng); 
-            transition: 0.3s; font-weight: 400; word-break: keep-all;
+            font-family: var(--font-eng);
+            font-size: 0.95rem;
+            color: #888;
+            letter-spacing: 0;
         }
         .pj-meta {
             font-family: var(--font-title); font-size: 1rem; color: #111; text-align: right;
@@ -240,11 +272,11 @@
             text-align: center; margin-left: -4rem; width: calc(100% + 8rem);
         }
         .contact-link {
-            font-family: var(--font-eng); font-size: clamp(1.5rem, 5vw, 2.5rem);
-            color: #fff; text-decoration: none; border-bottom: 2px solid #fff;
-            padding-bottom: 8px; transition: 0.3s; font-weight: 700; word-break: break-all;
+            font-family: var(--font-eng); font-size: clamp(1.2rem, 4vw, 1.8rem);
+            color: #fff; text-decoration: none; border-bottom: none;
+            padding-bottom: 0; transition: 0.3s; font-weight: 700; word-break: break-all;
         }
-        .contact-link:hover { color: #888; border-color: #888; }
+        .contact-link:hover { color: #888;}
         .copyright { margin-top: 3rem; color: #555; font-size: 0.85rem; font-family: var(--font-eng); }
 
         /* --- [Modal] --- */
@@ -369,12 +401,12 @@
             <h1>변지인</h1>
         </div>
         <ul class="nav-menu">
-            <li><a href="#">01. Home</a></li>
-            <li><a href="#about">02. Profile</a></li>
-            <li><a href="#projects">03. Works</a></li>
-            <li><a href="#experience">04. Career</a></li>
-            <li><a href="#skills">05. Skills</a></li>
-            <li><a href="#contact">06. Contact</a></li>
+            <li><a href="#">00. HOME</a></li>
+            <li><a href="#about">01. PROFILE</a></li>
+            <li><a href="#projects">02. WORKS</a></li>
+            <li><a href="#experience">03. CAREER</a></li>
+            <li><a href="#skills">04. SKILLS</a></li>
+            <li><a href="#contact">05. CONTACT</a></li>
         </ul>
         <div class="sidebar-footer">
             MADE BY YH<br>
@@ -386,35 +418,29 @@
         
         <section class="hero">
             <h2 class="hero-text">
-                IMAGINE,<br>
-                DESIGN,<br>
-                BUILD.
+                LOGIC DESIGN,<br>
+                SYSTEM VERIFICATION
             </h2>
+            <div class="hero-divider"></div>
             <p class="hero-sub">
-                나는 개발자 변지인!
+                RTL 설계와 UVM 검증을 배우며 성장하는 엔지니어 변지인입니다.
             </p>
-            <div class="btn-group">
-                <a href="https://github.com/JIIN-BYEON" target="_blank" class="btn-black">GITHUB</a>
-                <a href="https://linktr.ee/ahnyouhan" target="_blank" class="btn-outline">DOCS</a>
-            </div>
         </section>
 
         <section id="about">
             <div class="sec-header">
-                <span class="sec-num">02</span>
-                <h2 class="sec-title">Profile</h2>
+                <span class="sec-num">01</span>
+                <h2 class="sec-title">PROFILE</h2>
             </div>
             
             <div class="about-container">
                 <div class="profile-photo">
-                    <img src="./images/이월이.jpg" alt="프로젝트">
+                    <img src="./images/변지인 증명사진.jpg" alt="프로젝트">
                 </div>
 
                 <div class="about-details">
                     <p class="about-desc">
-                        단순히 코드를 작성하는 것을 넘어, 시스템의 구조를 이해하고 최적화하는 것을 즐깁니다.
-                        FPGA, RISC-V 아키텍처 설계부터 사용자 인터페이스 구현까지,
-                        Full-Stack Embedded Engineer를 목표로 나아가고 있습니다.
+                        
                     </p>
 
                     <div class="info-list">
@@ -439,8 +465,13 @@
                             <span class="info-value">건국대학교 전기전자공학부</span>
                         </div>
                         <div class="info-item">
-                            <span class="info-label">Phone</span>
-                            <span class="info-value">010-3827-3162</span>
+                            <span class="info-label">Github</span>
+                            <span class="info-value">
+                                <a href="https://github.com/JIIN-BYEON" target="_blank" style="color: #111; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s;">
+                                    <i class="fab fa-github" style="font-size: 1.3rem;"></i>
+                                    <span>JIIN-BYEON</span>
+                                </a>
+                            </span>
                         </div>
                     </div>
                 </div>
@@ -449,8 +480,8 @@
 
         <section id="projects">
             <div class="sec-header">
-                <span class="sec-num">03</span>
-                <h2 class="sec-title">Selected Works</h2>
+                <span class="sec-num">02</span>
+                <h2 class="sec-title">WORKS</h2>
             </div>
 
             <div class="project-list">
@@ -570,8 +601,8 @@
 
         <section id="experience">
             <div class="sec-header">
-                <span class="sec-num">04</span>
-                <h2 class="sec-title">Career</h2>
+                <span class="sec-num">03</span>
+                <h2 class="sec-title">CAREER</h2>
             </div>
             <div class="exp-container">
                 <div class="exp-row">
@@ -592,8 +623,8 @@
 
         <section id="skills">
             <div class="sec-header">
-                <span class="sec-num">05</span>
-                <h2 class="sec-title">Tech Stack</h2>
+                <span class="sec-num">04</span>
+                <h2 class="sec-title">SKILLS</h2>
             </div>
             <div class="skills-wrapper">
                 <div class="skill-group">
@@ -606,25 +637,31 @@
                     </div>
                 </div>
                 <div class="skill-group">
-                    <h3>Tools & IDE</h3>
+                    <h3>Verification</h3>
+                    <div class="skill-tags">
+                        <span class="tech-tag">UVM</span>
+                        <span class="tech-tag">Cadence Xcelium</span>
+                        <span class="tech-tag">Synopsys VCS</span>
+                        <span class="tech-tag">Verdi</span>
+                    </div>
+                </div>
+                <div class="skill-group">
+                    <h3>Development Tools</h3>
                     <div class="skill-tags">
                         <span class="tech-tag">Xilinx Vivado</span>
-                        <span class="tech-tag">Vitis</span>
                         <span class="tech-tag">STM32 CubeIDE</span>
-                        <span class="tech-tag">Visual Studio Code</span>
+                        <span class="tech-tag">Vitis</span>
                     </div>
                 </div>
             </div>
         </section>
 
         <footer id="contact" class="footer-sec">
-            <h2 style="font-family: var(--font-eng); margin-bottom: 2rem; font-size: clamp(1.5rem, 4vw, 2.5rem);">LET'S WORK TOGETHER</h2>
+            <h2 style="font-family: var(--font-eng); margin-bottom: 2rem; font-size: clamp(1.5rem, 4vw, 2.5rem);"></h2>
             <a href="mailto:quswldls3162@naver.com" class="contact-link">quswldls3162@naver.com</a>
             <div class="copyright">
-                <p>010-3827-3162</p>
-                <br>
                 Copyright © 2025 Jiin Byeon. All rights reserved.<br>
-            </div>
+            </div>            
         </footer>
 
     </main>
