@@ -1,0 +1,95 @@
+<svg viewBox="0 0 840 520" xmlns="http://www.w3.org/2000/svg" font-family="Arial, sans-serif">
+  <rect x="0" y="0" width="840" height="520" fill="#ffffff"/>
+
+  <!-- Test (component) -->
+  <rect x="20" y="20" width="800" height="480" fill="none" stroke="#111111" stroke-width="1.1"/>
+  <text x="34" y="42" font-size="12" font-weight="700" fill="#111111">Test</text>
+
+  <!-- tb (component) -->
+  <rect x="40" y="56" width="510" height="424" fill="none" stroke="#111111" stroke-width="1"/>
+  <text x="54" y="76" font-size="11" font-weight="700" fill="#111111">tb</text>
+
+  <!-- Video (component) [ Virtual Sequence (object) ] -->
+  <rect x="60" y="90" width="130" height="64" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+  <text x="125" y="104" font-size="10" font-weight="700" fill="#111111" text-anchor="middle">Video</text>
+  <rect x="72" y="112" width="106" height="34" fill="#ffffff" stroke="#111111" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="125" y="124" font-size="8" font-weight="600" fill="#111111" text-anchor="middle">Virtual</text>
+  <text x="125" y="134" font-size="8" font-weight="600" fill="#111111" text-anchor="middle">Sequence</text>
+
+  <!-- Virtual Sequence (object) [ Sequence (object) ] -->
+  <rect x="210" y="90" width="130" height="64" fill="#ffffff" stroke="#111111" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="275" y="104" font-size="9" font-weight="700" fill="#111111" text-anchor="middle">Virtual Sequence</text>
+  <rect x="222" y="114" width="106" height="30" fill="#ffffff" stroke="#111111" stroke-width="0.9" stroke-dasharray="3 2"/>
+  <text x="275" y="133" font-size="8.5" font-weight="600" fill="#111111" text-anchor="middle">Sequence</text>
+
+  <!-- Virtual Sequencer (component) [ virtual Interface (component/handle) ][ Sequencer (component) ] -->
+  <rect x="360" y="90" width="170" height="64" fill="none" stroke="#111111" stroke-width="1.2"/>
+  <text x="445" y="104" font-size="9" font-weight="700" fill="#111111" text-anchor="middle">Virtual Sequencer</text>
+  <rect x="372" y="112" width="72" height="34" fill="#ffffff" stroke="#111111" stroke-width="1"/>
+  <text x="408" y="124" font-size="7.5" fill="#111111" text-anchor="middle">virtual</text>
+  <text x="408" y="134" font-size="7.5" fill="#111111" text-anchor="middle">Interface</text>
+  <rect x="452" y="112" width="68" height="34" fill="#ffffff" stroke="#111111" stroke-width="1"/>
+  <text x="486" y="132" font-size="8" fill="#111111" text-anchor="middle">Sequencer</text>
+
+  <!-- Row2 : Sequence (object) / Seq_Item (object) / Virtual Interface (component/handle) -->
+  <rect x="60" y="170" width="130" height="54" fill="#ffffff" stroke="#111111" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="125" y="202" font-size="10" font-weight="600" fill="#111111" text-anchor="middle">Sequence</text>
+
+  <rect x="210" y="170" width="130" height="54" fill="#ffffff" stroke="#111111" stroke-width="1" stroke-dasharray="4 3"/>
+  <text x="275" y="202" font-size="10" font-weight="600" fill="#111111" text-anchor="middle">Seq_Item</text>
+
+  <rect x="360" y="170" width="170" height="54" fill="#ffffff" stroke="#111111" stroke-width="1.5"/>
+  <text x="445" y="202" font-size="10" font-weight="700" fill="#111111" text-anchor="middle">Virtual Interface</text>
+
+  <!-- Env (component) -->
+  <rect x="60" y="250" width="440" height="210" fill="none" stroke="#111111" stroke-width="1"/>
+  <text x="76" y="270" font-size="11" font-weight="700" fill="#111111">Env</text>
+
+  <!-- Agent (component) -->
+  <rect x="220" y="266" width="260" height="92" fill="none" stroke="#111111" stroke-width="1"/>
+  <text x="234" y="282" font-size="10" font-weight="700" fill="#111111">Agent</text>
+
+  <!-- Sequencer (component) -->
+  <rect x="236" y="292" width="100" height="48" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+  <text x="286" y="320" font-size="10" font-weight="600" fill="#111111" text-anchor="middle">Sequencer</text>
+
+  <!-- Driver (component) -->
+  <rect x="350" y="292" width="110" height="48" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+  <text x="405" y="320" font-size="11" font-weight="600" fill="#111111" text-anchor="middle">Driver</text>
+
+  <!-- Pull port: Sequencer ●──■ Driver -->
+  <line x1="336" y1="316" x2="350" y2="316" stroke="#111111" stroke-width="1.4"/>
+  <circle cx="338" cy="316" r="3.5" fill="#111111"/>
+  <rect x="345" y="312" width="8" height="8" fill="#111111"/>
+
+  <!-- Monitor (component) -->
+  <rect x="350" y="372" width="110" height="52" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+  <text x="405" y="402" font-size="11" font-weight="600" fill="#111111" text-anchor="middle">Monitor</text>
+
+  <!-- Scoreboard (component, verdict logic - emphasized) -->
+  <rect x="80" y="372" width="140" height="52" fill="#111111" stroke="#111111" stroke-width="1.2"/>
+  <text x="150" y="402" font-size="11" font-weight="700" fill="#ffffff" text-anchor="middle">Scoreboard</text>
+
+  <!-- In_Data / Out_Data ports: Scoreboard ●── ◆ Monitor -->
+  <line x1="220" y1="392" x2="350" y2="392" stroke="#111111" stroke-width="1.2"/>
+  <circle cx="224" cy="392" r="3.5" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+  <polygon points="350,392 345,388 340,392 345,396" fill="#111111"/>
+  <text x="285" y="386" font-size="8.5" font-weight="600" fill="#111111" text-anchor="middle">In_Data</text>
+
+  <line x1="220" y1="410" x2="350" y2="410" stroke="#111111" stroke-width="1.2"/>
+  <circle cx="224" cy="410" r="3.5" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+  <polygon points="350,410 345,406 340,410 345,414" fill="#111111"/>
+  <text x="285" y="424" font-size="8.5" font-weight="600" fill="#111111" text-anchor="middle">Out_Data</text>
+
+  <!-- TOP (component/physical) -->
+  <rect x="580" y="56" width="220" height="424" fill="none" stroke="#111111" stroke-width="1.1"/>
+  <text x="594" y="76" font-size="12" font-weight="700" fill="#111111">TOP</text>
+
+  <!-- Interface (component) -->
+  <rect x="610" y="140" width="160" height="140" fill="#ffffff" stroke="#111111" stroke-width="1.2"/>
+  <text x="690" y="214" font-size="11" font-weight="600" fill="#111111" text-anchor="middle">Interface</text>
+
+  <!-- DUT (target under test - distinguished, not verification logic) -->
+  <rect x="610" y="300" width="160" height="140" fill="#bcbcbc" stroke="#111111" stroke-width="1.2"/>
+  <text x="690" y="374" font-size="13" font-weight="700" fill="#111111" text-anchor="middle">DUT</text>
+</svg>
