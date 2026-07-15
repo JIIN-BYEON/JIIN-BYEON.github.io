@@ -285,6 +285,7 @@
             font-weight: 600;
             font-size: 1.5rem;
             letter-spacing: -0.03em;
+            word-break: keep-all;
         }
         .pj-badge {
             display: inline-block;
@@ -299,6 +300,7 @@
             border-radius: 2px;
             margin-left: 10px;
             vertical-align: middle;
+            white-space: nowrap;
             transition: all 0.3s ease;
         }
         .project-item:hover .pj-badge {
@@ -403,7 +405,33 @@
             font-size: 0.9rem; font-family: var(--font-eng); border-radius: 2px; display: inline-block;
         }
         .trouble-box { border: 1px solid #ddd; padding: 2rem; background: #fcfcfc; border-left: 4px solid #111; word-break: keep-all; line-height: 1.6; }
+        .m-gallery {
+            display: flex;
+            gap: 1.5rem;
+            flex-direction: row;
+            flex-wrap: nowrap;
+            margin-bottom: 2rem;
+            width: 100%;
+        }
+        .m-gallery img {
+            flex: 1;
+            width: 50%;
+            max-width: 100%;
+            aspect-ratio: 16 / 9;
+            height: auto;
+            object-fit: cover;
+            border: 1px solid #ddd;
+            background: #f0f0f0;
+        }
 
+        @media (max-width: 768px) {
+            .m-gallery {
+                flex-direction: column; 
+            }
+            .m-gallery img {
+                width: 100%;            
+            }
+        }
 
         /* --- [Responsive Strategies] --- */
 
@@ -415,6 +443,8 @@
             .hero-text { font-size: 4.5rem; }
             .pj-left { gap: 1.5rem; }
             .pj-img { width: 200px; height: 120px; }
+            .pj-info { min-width: 200px; }
+            .pj-title { font-size: 1.25rem; }
             .project-item { padding: 2rem 0; }
             
             /* 중간 화면에서도 가로 배치 유지하되 갭만 조정 */
@@ -458,9 +488,11 @@
             .info-item { border-right: none; padding-right: 0; }
             
             /* Projects Mobile */
-            .project-item { flex-direction: column; align-items: flex-start; gap: 1rem; padding: 2rem 0; }
+            .project-item { padding: 2rem 0; }
+            .pj-top { flex-direction: column; align-items: flex-start; gap: 1rem; }
             .pj-left { width: 100%; gap: 1rem; flex-direction: column; align-items: flex-start; }
             .pj-img { width: 100%; height: 200px; }
+            .pj-title { font-size: 1.2rem; }
             .pj-meta { text-align: left; margin-top: 0.5rem; color: #888; width: 100%; }
             .pj-arrow { display: none; }
             .project-item:hover { transform: none; padding-left: 1rem; padding-right: 1rem; }
@@ -468,6 +500,7 @@
             .modal-content { height: 100%; border: none; }
             .modal-header { padding: 1.5rem; }
             .modal-body { padding: 1.5rem; }
+            .m-gallery { gap: 0.8rem; }
             .footer-sec { margin-left: -1.5rem; width: calc(100% + 3rem); padding: 4rem 1.5rem; }
         }
         
@@ -479,6 +512,9 @@
             .sec-title { font-size: 1.8rem; }
             .profile-photo { width: 100%; }
             .pj-img { height: 180px; }
+            .pj-title { font-size: 1.1rem; }
+            .pj-badge { display: block; margin-left: 0; margin-top: 6px; width: fit-content; }
+            .m-gallery img { flex-basis: 100%; }
         }
     </style>
 </head>
@@ -521,7 +557,7 @@
             
             <div class="about-container">
                 <div class="profile-photo">
-                    <img src="./images/변지인 증명사진.jpg" alt="프로젝트">
+                    <img src="./images/변지인_증명사진.jpg" alt="변지인 프로필 사진">
                 </div>
 
                 <div class="about-details">
@@ -536,7 +572,7 @@
                         </div>
                         <div class="info-item">
                             <span class="info-label">Address</span>
-                            <span class="info-value">충청북도 음성군</span>
+                            <span class="info-value">충청북도</span>
                         </div>
                         <div class="info-item">
                             <span class="info-label">Email</span>
@@ -545,15 +581,6 @@
                         <div class="info-item">
                             <span class="info-label">Education</span>
                             <span class="info-value">건국대학교 전기전자공학부</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Github</span>
-                            <span class="info-value">
-                                <a href="https://github.com/JIIN-BYEON" target="_blank" style="color: #111; text-decoration: none; display: inline-flex; align-items: center; gap: 8px; transition: 0.3s;">
-                                    <i class="fab fa-github" style="font-size: 1.3rem;"></i>
-                                    <span>JIIN-BYEON</span>
-                                </a>
-                            </span>
                         </div>
                     </div>
                 </div>
@@ -570,7 +597,7 @@
                 <div class="project-item" onclick="openModal('penplotter')">
                     <div class="pj-top">
                         <div class="pj-left">
-                        <div class="pj-img">PROJECT IMG</div>
+                        <div class="pj-img"><img src="images/penplotter.jpg" alt="PenPlotter SoC"></div>
                         <div class="pj-info">
                             <div class="pj-title">SoC 기반 펜 플로터 커스텀 각인 서비스 시스템<span class="pj-badge">최우수상</span></div>
                             <div class="pj-desc">Image Processing Pipeline & FreeRTOS Motor Control Integration</div>
@@ -594,7 +621,7 @@
                 <div class="project-item" onclick="openModal('uvm-linebuffer')">
                     <div class="pj-top">
                         <div class="pj-left">
-                        <div class="pj-img">PROJECT IMG</div>
+                        <div class="pj-img"><img src="images/uvm-linebuffer.svg" alt="UVM Line Buffer 검증 환경"></div>
                         <div class="pj-info">
                             <div class="pj-title">UVM 기반 Line Buffer 검증 환경 구축</div>
                             <div class="pj-desc">3-Tier Scoreboard for Pixel/Line/Frame Verification</div>
@@ -616,7 +643,7 @@
                 <div class="project-item" onclick="openModal('VGA')">
                     <div class="pj-top">
                         <div class="pj-left">
-                        <div class="pj-img">PROJECT IMG</div>
+                        <div class="pj-img"><img src="images/vga-dualvision.png" alt="FPGA Dual-Vision System & RGB Dice Race Game"></div>
                         <div class="pj-info">
                             <div class="pj-title">FPGA 기반 Dual-Vision System & RGB Dice Race Game</div>
                             <div class="pj-desc">Dual Camera System with SCCB Interface & Hardware Image Filters</div>
@@ -639,7 +666,7 @@
                 <div class="project-item" onclick="openModal('axi-spi')">
                     <div class="pj-top">
                         <div class="pj-left">
-                        <div class="pj-img">PROJECT IMG</div>
+                        <div class="pj-img"><img src="images/spi-i2c.png" alt="SPI/I2C 통신 인터페이스"></div>
                         <div class="pj-info">
                             <div class="pj-title">SPI/I2C 직렬 통신 IP 설계 및 MicroBlaze SoC 통합</div>
                             <div class="pj-desc">Standard Protocol IP Design & AXI4-Lite Integration</div>
@@ -660,7 +687,7 @@
                 <div class="project-item" onclick="openModal('risc-v')">
                     <div class="pj-top">
                         <div class="pj-left">
-                        <div class="pj-img">PROJECT IMG</div>
+                        <div class="pj-img"><img src="images/risc-v.png" alt="RV32I Multi-Cycle CPU & AMBA APB SoC"></div>
                         <div class="pj-info">
                             <div class="pj-title">RV32I Multi-Cycle CPU Core 및 AMBA APB SoC 설계</div>
                             <div class="pj-desc">32-bit Processor Design with AMBA Bus</div>
@@ -760,10 +787,8 @@
             </div>
             
             <div class="modal-body">
-                <div style="margin-bottom: 2rem; text-align: right;">
-                    <a href="#" id="modal-github-link" target="_blank" class="btn-black" style="font-size: 0.9rem; padding: 0.5rem 1.5rem;">
-                        <i class="fab fa-github"></i> VIEW CODE
-                    </a>
+                <div class="m-section" id="modal-gallery-section" style="display:none;">
+                    <div id="modal-gallery" class="m-gallery"></div>
                 </div>
                 <div class="m-section">
                     <h3>개요</h3>
@@ -819,7 +844,7 @@
                 troubleshooting: "OV7670, UART, Edge Detection 등 다수의 RTL 모듈을 Top-level에서 통합하는 과정에서 타이밍 불일치 문제가 발생했습니다. 개별 모듈은 정상 동작했으나 통합 후 신호 정합이 깨지는 현상이 반복되어, 원인 분석 후 인터페이스 규격을 재정의하고 Top-level 통합 로직을 전면 재설계하여 안정적인 시스템 동작을 확보했습니다.",
                 reflections: "7인 팀을 이끌며 팀원별 강점을 분석해 FPGA/임베디드/Python 파트로 역할을 배치하고, Git·Notion 기반 형상 관리로 병렬 개발을 조율했습니다. 개별 모듈의 완성도만큼 모듈 간 인터페이스 표준화가 개발 속도와 안정성에 미치는 영향이 크다는 것을 체감했습니다.",
                 docUrl: "./pdf/1. PenPlotter SoC.pdf",
-                github: "https://github.com/JIIN-BYEON",
+                images: ["images/penplotter-result.jpg", "images/penplotter-process.jpg"],
                 tags: ["SystemVerilog", "FPGA", "OV7670", "UART", "STM32", "FreeRTOS", "System Integration"]
             },
             "uvm-linebuffer": {
@@ -840,17 +865,16 @@
                 troubleshooting: "Scoreboard 프레임 비교 시 마지막 프레임이 누락되는 문제가 발생했습니다. 원인은 VSYNC Falling Edge를 프레임 완성 시점으로 사용해 마지막 프레임이 다음 VSYNC 부재로 Queue에 Push되지 못한 채 시뮬레이션이 종료되는 것이었습니다. run_phase 종료 직전 잔여 프레임을 Queue에 강제 Push한 후 남은 Queue를 모두 소진할 때까지 비교를 진행하도록 로직을 수정하고, Queue 정합성 체크를 추가하여 검증 완전성을 확보했습니다.",
                 reflections: "UVM Full Hierarchy를 직접 구축하면서 각 컴포넌트가 유기적으로 연결되어 데이터 흐름을 형성하는 방식을 체득했습니다. DUT 출력을 Pixel/Line/Frame 3가지 관점에서 독립적으로 검증하는 계층적 아키텍처를 설계하며, 단순 동작 확인이 아닌 체계적이고 재현 가능한 검증 환경의 가치를 이해했습니다.",
                 docUrl: "./pdf/2. UVM Line Buffer 검증.pdf",
-                github: "https://github.com/JIIN-BYEON",
                 tags: ["SystemVerilog", "UVM", "Verification", "Scoreboard"]
             },
             "VGA": {
                 title: "FPGA 기반 Dual-Vision System 및 RGB Dice Race Game",
                 period: "2025.11.24 ~ 2025.12.05 (팀 프로젝트 · 4인)", 
                 summary: "듀얼 OV7670 카메라와 FPGA를 이용해 실시간 영상 인식 및 하드웨어 필터링을 구현한 게임 프로젝트입니다.",
+                images: ["images/vga-system.png", "images/vga-camera.png"],
                 reflections: "SCCB 인터페이스를 직접 RTL로 구현하며 카메라 레지스터 제어 및 통신 프로토콜에 대한 깊은 이해를 얻었습니다. 특히 프로젝트 초기 시스템 아키텍처를 설계하고 Top-level 인터페이스를 먼저 정의하여 협업 효율을 높였으며, 체계적인 설계 프로세스의 중요성을 체감했습니다.",
                 troubleshooting: "Dual QVGA 카메라 사용 시 FPGA 리소스 Overflow(LUT 200%, LUTRAM 275%)가 발생했습니다. 이를 해결하기 위해 입력 해상도를 QQVGA로 축소 재설정하고, Nearest-Neighbor 알고리즘 기반의 Hardware Upscaler를 직접 구현하여 실시간으로 QVGA 크기로 출력함으로써 리소스 문제를 해결했습니다.",
                 docUrl: "./pdf/3. FPGA Dual-Vision.pdf", 
-                github: "https://github.com/JIIN-BYEON/ov7670-dice-race",
                 details: [
                     "OV7670 카메라 제어를 위한 SCCB(I2C 기반) 통신 인터페이스 설계 및 구현",
                     "듀얼 카메라 입력을 동시 처리하기 위한 VGA Controller 및 Frame Buffer 아키텍처 설계",
@@ -870,10 +894,10 @@
                 title: "SPI/I2C 직렬 통신 IP 설계 및 MicroBlaze SoC 통합",
                 period: "2025.11.07 ~ 2025.11.17 (개인 프로젝트)",
                 summary: "표준 통신 프로토콜(SPI, I2C)을 외부 물리 제약을 반영하여 RTL로 직접 설계하고, AXI4-Lite를 통해 단일 IP를 MicroBlaze SoC Peripheral로 확장·통합했습니다.",
+                images: ["images/spi-block.png", "images/i2c-block.png"],
                 troubleshooting: "I2C Read의 Restart 조건에서 통신이 끊기는 문제가 발생했습니다. 원인은 SDA를 Output Enable 방식으로 제어하여 Master/Slave 간 라인 충돌이 발생하는 것이었습니다. I2C 표준의 Open-Drain 사양에 맞춰 SDA를 0으로만 강제 구동하고 그 외에는 Hi-Z(1'bz)로 해제하도록 RTL을 재설계하여, 외부 풀업 저항이 라인을 1로 끌어올리는 정상 동작을 확보했습니다.",
                 reflections: "AMBA 프로토콜을 직접 구현하며 SoC 내부 통신 구조를 깊이 이해했습니다. 특히 마스터와 슬레이브 간의 핸드쉐이킹 과정을 디버깅하며 타이밍 제어의 중요성을 체감했습니다.",
                 docUrl: "./pdf/4. SPI-I2C MicroBlaze.pdf", 
-                github: "https://github.com/JIIN-BYEON",
                 details: [
                     "AMBA AXI4-Lite 인터페이스 규격 분석 및 슬레이브 IP 설계",
                     "SPI Master/Slave 및 I2C Master 모듈 SystemVerilog 구현",
@@ -891,10 +915,10 @@
                 title: "RV32I Multi-Cycle CPU Core 및 AMBA APB SoC 설계",
                 period: "2025.10.17 ~ 2025.10.27 (개인 프로젝트)",
                 summary: "Single-Cycle CPU의 Critical Path 비효율을 Multi-Cycle 구조로 개선하고, AMBA APB를 통해 단일 CPU를 확장 가능한 SoC로 확장·발전시켰습니다.",
+                images: ["images/risc-v-datapath.png", "images/risc-v-soc-block.png"],
                 troubleshooting: "C Application 실행 시 CPU가 ROM Fetch 단계에서 멈추는 문제가 발생했습니다. 원인은 Bare Metal 환경의 Linker Script 부재로 Data Segment가 ROM 명령어와 합쳐져 유효하지 않은 Opcode가 fetch 되는 것이었습니다. 모든 상태 변수를 지역 변수 및 Hardware Register로만 관리하도록 C 코드를 최적화하고, RV32I ISA가 지원하지 않는 함수(rand)는 고정 패턴 배열로 대체하여 해결했습니다.",
                 reflections: "Single-Cycle에서 Multi-Cycle 구조로의 개선 과정을 통해 하드웨어 설계가 동작을 넘어 성능-효율 trade-off를 고민하는 작업임을 체득했습니다. APB Protocol을 통한 SoC 확장 경험으로 표준 버스의 IP 재사용성과 시스템 확장성을 체감했습니다.",
                 docUrl: "./pdf/5. RV32I RISC-V SoC.pdf", 
-                github: "https://github.com/JIIN-BYEON",
                 details: [
                     "SystemVerilog로 RV32I 기반 CPU 설계 및 AMBA APB Interface 구축",
                     "Single-Cycle 구조를 FSM 기반 5-stage Multi-Cycle 구조로 재설계",
@@ -918,8 +942,20 @@
             document.getElementById("modal-title").textContent = data.title;
             document.getElementById("modal-meta").textContent = data.period;
             document.getElementById("modal-summary").textContent = data.summary;
-            const githubBtn = document.getElementById("modal-github-link");
-            githubBtn.href = data.github;
+            const gallerySection = document.getElementById("modal-gallery-section");
+            const galleryContainer = document.getElementById("modal-gallery");
+            galleryContainer.innerHTML = "";
+            if (data.images && data.images.length > 0) {
+                data.images.forEach(src => {
+                    const img = document.createElement("img");
+                    img.src = src;
+                    img.alt = data.title;
+                    galleryContainer.appendChild(img);
+                });
+                gallerySection.style.display = "block";
+            } else {
+                gallerySection.style.display = "none";
+            }
             const tagsContainer = document.getElementById("modal-tags");
             tagsContainer.innerHTML = "";
             data.tags.forEach(tag => {
@@ -963,7 +999,7 @@
             const docSection = document.getElementById("modal-doc-section");
             const docFrame = document.getElementById("modal-doc-frame");
             if (data.docUrl) {
-                docFrame.src = data.docUrl;
+                docFrame.src = data.docUrl + "#toolbar=0&navpanes=0";
                 docSection.style.display = "block";
             } else {
                 docSection.style.display = "none";
