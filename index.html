@@ -171,19 +171,29 @@
             color: #222; word-break: keep-all; -webkit-user-select: text; user-select: text;
         }
 
+        /* info-list: 라벨/값을 세로로 쌓아서 어떤 화면 폭에서도 한 줄로 안전하게 표시 */
         .info-list {
             display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 2rem 1.5rem;
             border-top: 1px solid #111;
+            padding-top: 2rem;
         }
-        .info-item { display: flex; border-bottom: 1px solid #e5e5e5; padding: 1.5rem 0; align-items: center; padding-right: 1rem; }
+        .info-item {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            border-bottom: 1px solid #e5e5e5;
+            padding-bottom: 1.5rem;
+        }
         .info-label {
-            font-family: var(--font-eng); width: 100px; font-weight: 600; color: #888;
-            text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px; flex-shrink: 0;
+            font-family: var(--font-eng); font-weight: 600; color: #888;
+            text-transform: uppercase; font-size: 0.85rem; letter-spacing: 0.5px;
         }
         .info-value {
             font-weight: 600; color: #111; font-size: 1.05rem;
-            -webkit-user-select: text; user-select: text; word-break: break-all;
+            white-space: nowrap;
+            -webkit-user-select: text; user-select: text;
         }
         .info-value a:hover {
             color: #555;
@@ -484,8 +494,8 @@
             .about-details {
                 width: 100%;
             }
-            .info-list { grid-template-columns: 1fr; }
-            .info-item { border-right: none; padding-right: 0; }
+            .info-list { grid-template-columns: repeat(2, 1fr); gap: 1.5rem 1rem; }
+            .info-value { white-space: normal; word-break: break-word; }
             
             /* Projects Mobile */
             .project-item { padding: 2rem 0; }
@@ -515,6 +525,7 @@
             .pj-title { font-size: 1.1rem; }
             .pj-badge { display: block; margin-left: 0; margin-top: 6px; width: fit-content; }
             .m-gallery img { flex-basis: 100%; }
+            .info-list { grid-template-columns: 1fr; gap: 1.2rem; }
         }
     </style>
 </head>
@@ -569,10 +580,6 @@
                         <div class="info-item">
                             <span class="info-label">Birth</span>
                             <span class="info-value">2001.05.29</span>
-                        </div>
-                        <div class="info-item">
-                            <span class="info-label">Address</span>
-                            <span class="info-value">충청북도</span>
                         </div>
                         <div class="info-item">
                             <span class="info-label">Email</span>
@@ -717,7 +724,7 @@
                 <div class="exp-row">
                     <div class="exp-date">2020.03 - 현재</div>
                     <div class="exp-content">
-                        <h3>건국대학교 전기전자공학부 졸업 예정(2026.08)</h3>
+                        <h3>건국대학교 전기전자공학부 졸업 예정(2027.02)</h3>
                     </div>
                 </div>
                 <div class="exp-row">
@@ -1028,6 +1035,16 @@
 
         document.addEventListener('keydown', function(e) {
             if (e.key === 'F12') { e.preventDefault(); }
+            const isCopy = e.ctrlKey && (e.key === 'c' || e.key === 'C');
+            if (isCopy) {
+                const sel = window.getSelection();
+                if (sel && sel.anchorNode) {
+                    const container = sel.anchorNode.nodeType === 3 ? sel.anchorNode.parentElement : sel.anchorNode;
+                    if (container && container.closest('.info-value, .about-desc, .contact-link')) {
+                        return; // 이메일 등 복사 허용 영역은 Ctrl+C를 막지 않음
+                    }
+                }
+            }
             if (e.ctrlKey && (e.key === 'u' || e.key === 'U' || e.key === 's' || e.key === 'S' || e.key === 'a' || e.key === 'A' || e.key === 'c' || e.key === 'C')) {
                 e.preventDefault();
             }
